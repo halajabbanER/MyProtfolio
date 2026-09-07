@@ -1,7 +1,7 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 
 const CODE_LINES = [
-  { tokens: [{ text: '// Professional Profile', cls: 'text-secondary' }] },
+  { tokens: [{ text: '// Web & Mobile Profile', cls: 'text-secondary' }] },
   { tokens: [{ text: 'const ', cls: 'text-keyword' }, { text: 'developer = {', cls: 'text-code-plain' }] },
   {
     tokens: [
@@ -12,30 +12,32 @@ const CODE_LINES = [
   },
   {
     tokens: [
-      { text: '  role: ', cls: 'text-code-plain' },
-      { text: "'Software / Backend Engineer'", cls: 'text-string' },
+      { text: '  specialty: ', cls: 'text-code-plain' },
+      { text: "'Web & Mobile Development'", cls: 'text-string' },
       { text: ',', cls: 'text-code-plain' },
     ],
   },
   {
     tokens: [
-      { text: '  university: ', cls: 'text-code-plain' },
-      { text: "'FSMVU'", cls: 'text-string' },
-      { text: ',', cls: 'text-code-plain' },
-    ],
-  },
-  {
-    tokens: [
-      { text: '  skills: [', cls: 'text-code-plain' },
+      { text: '  frontend: [', cls: 'text-code-plain' },
       { text: "'React'", cls: 'text-string' },
       { text: ', ', cls: 'text-code-plain' },
       { text: "'React Native'", cls: 'text-string' },
       { text: ', ', cls: 'text-code-plain' },
+      { text: "'JavaScript'", cls: 'text-string' },
+      { text: ', ', cls: 'text-code-plain' },
+      { text: "'Bootstrap'", cls: 'text-string' },
+      { text: '],', cls: 'text-code-plain' },
+    ],
+  },
+  {
+    tokens: [
+      { text: '  backend: [', cls: 'text-code-plain' },
+      { text: "'ASP.NET Core'", cls: 'text-string' },
+      { text: ', ', cls: 'text-code-plain' },
       { text: "'C#'", cls: 'text-string' },
       { text: ', ', cls: 'text-code-plain' },
-      { text: "'ASP.NET'", cls: 'text-string' },
-      { text: ', ', cls: 'text-code-plain' },
-      { text: "'SQL'", cls: 'text-string' },
+      { text: "'SQL Server'", cls: 'text-string' },
       { text: '],', cls: 'text-code-plain' },
     ],
   },
@@ -43,14 +45,14 @@ const CODE_LINES = [
   {
     tokens: [
       { text: '    ', cls: 'text-code-plain' },
-      { text: "'Pal4it Backend Intern'", cls: 'text-teal' },
+      { text: "'Pal4it Backend (2025)'", cls: 'text-teal' },
       { text: ',', cls: 'text-code-plain' },
     ],
   },
   {
     tokens: [
       { text: '    ', cls: 'text-code-plain' },
-      { text: "'Yukatech React Native'", cls: 'text-teal' },
+      { text: "'Yukatech Web & Mobile (2026)'", cls: 'text-teal' },
     ],
   },
   { tokens: [{ text: '  ],', cls: 'text-code-plain' }] },
@@ -63,64 +65,57 @@ const CODE_LINES = [
   { tokens: [{ text: '};', cls: 'text-code-plain' }] },
 ]
 
-export default function TypingCodeCard() {
-  // Precalculate token indices
-  const { totalChars, linesWithOffsets } = useMemo(() => {
-    let currentOffset = 0
-    const lines = CODE_LINES.map((line, lineIndex) => {
-      const tokens = line.tokens.map((token, tokenIndex) => {
-        const start = currentOffset
-        const end = currentOffset + token.text.length
-        currentOffset = end
-        return {
-          ...token,
-          start,
-          end,
-          id: `${lineIndex}-${tokenIndex}`,
-        }
-      })
-      return { tokens }
-    })
-    return { totalChars: currentOffset, linesWithOffsets: lines }
-  }, [])
-
-  const [charCount, setCharCount] = useState(0)
-  const [copied, setCopied] = useState(false)
-  const [isTyping, setIsTyping] = useState(true)
-
-  // Typing effect loop
-  useEffect(() => {
-    if (!isTyping) return
-
-    if (charCount < totalChars) {
-      // Natural typing variation: faster for spaces and normal for letters
-      const delay = Math.floor(Math.random() * 15) + 18
-      const timer = setTimeout(() => {
-        setCharCount((prev) => prev + 1)
-      }, delay)
-      return () => clearTimeout(timer)
-    } else {
-      setIsTyping(false)
+// Compute token offsets once at module load
+let staticOffset = 0
+const linesWithOffsets = CODE_LINES.map((line, lineIndex) => {
+  const tokens = line.tokens.map((token, tokenIndex) => {
+    const start = staticOffset
+    const end = staticOffset + token.text.length
+    staticOffset = end
+    return {
+      ...token,
+      start,
+      end,
+      id: `${lineIndex}-${tokenIndex}`,
     }
-  }, [charCount, totalChars, isTyping])
+  })
+  return { tokens }
+})
+const totalChars = staticOffset
 
-  const handleReplay = () => {
-    setCharCount(0)
-    setIsTyping(true)
-  }
-
-  const rawCodeString = `// Professional Profile
+const rawCodeString = `// Web & Mobile Profile
 const developer = {
   name: 'Hala Jabban',
-  role: 'Software / Backend Engineer',
-  university: 'FSMVU',
-  skills: ['React', 'React Native', 'C#', 'ASP.NET', 'SQL'],
+  specialty: 'Web & Mobile Development',
+  frontend: ['React', 'React Native', 'JavaScript', 'Bootstrap'],
+  backend: ['ASP.NET Core', 'C#', 'SQL Server'],
   experience: [
-    'Pal4it Backend Intern',
-    'Yukatech React Native'
+    'Pal4it Backend (2025)',
+    'Yukatech Web & Mobile (2026)'
   ],
   openForWork: true
 };`
+
+export default function TypingCodeCard() {
+  const [charCount, setCharCount] = useState(0)
+  const [copied, setCopied] = useState(false)
+
+  const isTyping = charCount < totalChars
+
+  // Typing effect loop
+  useEffect(() => {
+    if (charCount >= totalChars) return
+
+    const delay = Math.floor(Math.random() * 10) + 16
+    const timer = setTimeout(() => {
+      setCharCount((prev) => prev + 1)
+    }, delay)
+    return () => clearTimeout(timer)
+  }, [charCount])
+
+  const handleReplay = () => {
+    setCharCount(0)
+  }
 
   const handleCopyCode = () => {
     navigator.clipboard.writeText(rawCodeString)
@@ -150,7 +145,7 @@ const developer = {
             title="Replay typing animation"
             aria-label="Replay animation"
           >
-            <i className={`bi bi-arrow-clockwise ${isTyping ? 'spin-slow' : ''} fs-6`}></i>
+            <i className={`bi ${isTyping ? 'bi-arrow-clockwise spin-slow' : 'bi-arrow-clockwise'} fs-6`}></i>
           </button>
           <button
             type="button"
@@ -165,9 +160,8 @@ const developer = {
       </div>
 
       {/* Animated Code Editor Body */}
-      <div className="code-content font-monospace small position-relative" style={{ minHeight: '310px' }}>
+      <div className="code-content font-monospace small position-relative" style={{ minHeight: '325px' }}>
         {linesWithOffsets.map((line, lIndex) => {
-          // Check if this line has started
           const lineFirstToken = line.tokens[0]
           if (charCount < lineFirstToken.start) return null
 
@@ -204,7 +198,7 @@ const developer = {
       {/* Status Bar */}
       <div className="d-flex justify-content-between align-items-center pt-2 mt-3 border-top border-secondary border-opacity-25 text-secondary font-monospace small">
         <span className="d-flex align-items-center gap-1">
-          <i className="bi bi-check2-all text-teal"></i> TypeScript &bull; UTF-8
+          <i className="bi bi-code-slash text-teal"></i> Web &amp; Mobile &bull; TypeScript &bull; UTF-8
         </span>
         <span className="small opacity-75">
           {isTyping ? 'Typing code...' : 'Live Interactive'}

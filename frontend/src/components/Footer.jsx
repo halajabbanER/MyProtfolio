@@ -66,6 +66,11 @@ export default function Footer() {
                   <i className="bi bi-envelope-fill text-teal"></i> halajabban07@gmail.com
                 </a>
               </li>
+              <li>
+                <a href="tel:+905511760010" className="footer-link d-inline-flex align-items-center gap-2">
+                  <i className="bi bi-telephone-fill text-teal"></i> +90 551 176 0010
+                </a>
+              </li>
             </ul>
 
             <div className="d-flex gap-2">
@@ -86,6 +91,15 @@ export default function Footer() {
                 aria-label="LinkedIn Profile"
               >
                 <i className="bi bi-linkedin"></i>
+              </a>
+              <a
+                href="https://wa.me/905511760010"
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-social"
+                aria-label="Chat on WhatsApp"
+              >
+                <i className="bi bi-whatsapp"></i>
               </a>
               <a
                 href="mailto:halajabban07@gmail.com"

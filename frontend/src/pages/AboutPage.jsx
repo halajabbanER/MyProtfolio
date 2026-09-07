@@ -49,16 +49,13 @@ export default function AboutPage() {
               <h2 className="h3 fw-bold mb-3">Who I Am & What Drives Me</h2>
               <p className="text-muted mb-3">
                 I am a <strong>Computer Engineering student</strong> at <strong>Fatih Sultan Mehmet Vakif University</strong> in Istanbul, Turkiye.
-                My passion lies at the intersection of robust backend engineering and responsive cross-platform user interfaces.
+                My passion and primary specialization is <strong>Full-Stack Web Development</strong>, crafting high-performance web platforms, intuitive frontends, and reliable backend architectures.
               </p>
               <p className="text-muted mb-3">
-                During my internship as a <strong>Junior Backend / Software Engineer at Pal4it</strong>, I focused on designing RESTful APIs,
-                optimizing database interactions, and implementing maintainable application logic. Concurrently, through my experience at <strong>Yukatech</strong>,
-                I expanded into modern <strong>React and React Native</strong> development, creating cross-platform mobile and web experiences.
+                In 2025, during my internship as a <strong>Junior Backend / Software Engineer at Pal4it</strong>, I designed and optimized RESTful APIs and database schemas. In 2026, at <strong>Yukatech</strong>, I contributed as a <strong>React &amp; Web Developer</strong>, developing dynamic, responsive web interfaces and modern user experiences.
               </p>
               <p className="text-muted mb-4">
-                Whether simulating a 16-bit processor architecture in Logisim, building an inventory system in Java,
-                or writing full-stack web applications in C# and React, I treat software engineering as an art of disciplined problem-solving.
+                Whether developing comprehensive web applications with React, ASP.NET Core, and SQL Server, or exploring modern web technologies, I treat software engineering as an art of disciplined problem-solving and clean architecture.
               </p>
 
               <div className="d-flex flex-wrap gap-3">

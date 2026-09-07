@@ -4,11 +4,13 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: 'Internship / Junior Role',
+    phone: '',
+    subject: 'Web & Mobile Development',
     message: '',
   })
   const [status, setStatus] = useState({ type: '', message: '' })
   const [copied, setCopied] = useState(false)
+  const [copiedPhone, setCopiedPhone] = useState(false)
   const [submitting, setSubmitting] = useState(false)
 
   const handleChange = (e) => {
@@ -20,6 +22,12 @@ export default function ContactPage() {
     navigator.clipboard.writeText('halajabban07@gmail.com')
     setCopied(true)
     setTimeout(() => setCopied(false), 2500)
+  }
+
+  const handleCopyPhone = () => {
+    navigator.clipboard.writeText('+90 551 176 0010')
+    setCopiedPhone(true)
+    setTimeout(() => setCopiedPhone(false), 2500)
   }
 
   const handleSubmit = (e) => {
@@ -65,7 +73,8 @@ export default function ContactPage() {
       setFormData({
         name: '',
         email: '',
-        subject: 'Internship / Junior Role',
+        phone: '',
+        subject: 'Web & Mobile Development',
         message: '',
       })
       setSubmitting(false)
@@ -155,6 +164,26 @@ export default function ContactPage() {
                 </div>
 
                 <div className="mb-3">
+                  <label htmlFor="phone" className="form-label fw-bold small text-muted">
+                    Phone / Mobile Number <span className="text-muted fw-normal">(Optional)</span>
+                  </label>
+                  <div className="input-group">
+                    <span className="input-group-text bg-transparent">
+                      <i className="bi bi-telephone text-muted"></i>
+                    </span>
+                    <input
+                      type="tel"
+                      className="form-control"
+                      id="phone"
+                      name="phone"
+                      placeholder="+90 5xx xxx xxxx"
+                      value={formData.phone}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-3">
                   <label htmlFor="subject" className="form-label fw-bold small text-muted">
                     Inquiry Topic
                   </label>
@@ -165,8 +194,9 @@ export default function ContactPage() {
                     value={formData.subject}
                     onChange={handleChange}
                   >
-                    <option value="Internship / Junior Role">Software Engineering Opportunity / Internship</option>
-                    <option value="Freelance / Web Project">Web / Mobile Project Collaboration</option>
+                    <option value="Mobile App Development">Mobile App Development (React Native / iOS & Android)</option>
+                    <option value="Web & Mobile Development">Web & Mobile Project Collaboration</option>
+                    <option value="Software Engineering Opportunity / Internship">Software Engineering Opportunity / Internship</option>
                     <option value="Backend Consulting">Backend & API Development</option>
                     <option value="General Question">General Networking & Discussion</option>
                   </select>
@@ -253,6 +283,40 @@ export default function ContactPage() {
                     <i className={`bi ${copied ? 'bi-check-lg' : 'bi-clipboard'} me-1`}></i>
                     <span>{copied ? 'Copied!' : 'Copy'}</span>
                   </button>
+                </div>
+
+                <div className="d-flex align-items-center justify-content-between gap-2 p-3 bg-white bg-opacity-10 rounded-3">
+                  <div className="d-flex align-items-center gap-3 text-truncate">
+                    <div className="sidebar-icon-box">
+                      <i className="bi bi-telephone-fill"></i>
+                    </div>
+                    <div className="text-truncate">
+                      <small className="text-light-muted d-block">Phone / WhatsApp</small>
+                      <a href="tel:+905511760010" className="text-white text-decoration-none fw-semibold">
+                        +90 551 176 0010
+                      </a>
+                    </div>
+                  </div>
+                  <div className="d-flex gap-1 flex-shrink-0">
+                    <a
+                      href="https://wa.me/905511760010"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn btn-sm btn-success d-inline-flex align-items-center"
+                      title="Direct WhatsApp Chat"
+                    >
+                      <i className="bi bi-whatsapp"></i>
+                    </a>
+                    <button
+                      type="button"
+                      className={`btn btn-sm ${copiedPhone ? 'btn-success' : 'btn-outline-light'}`}
+                      onClick={handleCopyPhone}
+                      title="Copy phone number"
+                    >
+                      <i className={`bi ${copiedPhone ? 'bi-check-lg' : 'bi-clipboard'} me-1`}></i>
+                      <span>{copiedPhone ? 'Copied!' : 'Copy'}</span>
+                    </button>
+                  </div>
                 </div>
 
                 <div className="d-flex align-items-center gap-3">

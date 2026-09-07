@@ -3,10 +3,10 @@ import TypingCodeCard from '../components/TypingCodeCard'
 
 export default function HomePage() {
   const stats = [
-    { value: '2025', label: 'Industry Experience', desc: 'Pal4it Backend & Yukatech React Native', icon: 'bi-briefcase' },
+    { value: '2025 - 2026', label: 'Industry Experience', desc: 'Pal4it (2025) & Yukatech (2026)', icon: 'bi-briefcase' },
     { value: '3', label: 'Languages', desc: 'Arabic, Turkish & English', icon: 'bi-translate' },
     { value: '2027', label: 'Graduation', desc: 'B.Sc. Computer Engineering (FSMVU)', icon: 'bi-mortarboard' },
-    { value: '8+', label: 'Built Projects', desc: 'Web, Mobile, Desktop & Logic', icon: 'bi-folder-check' },
+    { value: '8+', label: 'Built Projects', desc: 'Web Applications & Digital Platforms', icon: 'bi-folder-check' },
   ]
 
   const highlights = [
@@ -39,19 +39,19 @@ export default function HomePage() {
             <div className="col-lg-7">
               <div className="d-inline-flex align-items-center gap-2 px-3 py-1 mb-3 rounded-pill hero-pill">
                 <span className="pulsing-circle"></span>
-                <span className="small fw-bold">Computer Engineering Student &bull; Istanbul</span>
+                <span className="small fw-bold">Computer Engineering &bull; Web Developer &bull; Istanbul</span>
               </div>
 
               <h1 className="display-4 fw-black hero-title mb-3">
-                I build software that is{' '}
-                <span className="text-teal-gradient">clear, reliable,</span> and{' '}
-                <span className="text-coral-gradient">useful.</span>
+                I build web applications that are{' '}
+                <span className="text-teal-gradient">fast, responsive,</span> and{' '}
+                <span className="text-coral-gradient">scalable.</span>
               </h1>
 
               <p className="lead hero-lead text-muted mb-4">
-                Hi, I'm <strong>Hala Jabban</strong>. A passionate Junior Backend & Software Engineer 
-                with practical experience developing REST APIs, database schemas, and modern cross-platform 
-                web and mobile applications.
+                Hi, I'm <strong>Hala Jabban</strong>. A Computer Engineering student &amp; Full-Stack Web Developer 
+                specializing in building modern React web interfaces, robust backend REST APIs, 
+                and database-driven web solutions.
               </p>
 
               <div className="d-flex flex-wrap gap-3 mb-4">
