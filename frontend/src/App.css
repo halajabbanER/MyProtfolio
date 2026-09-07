@@ -149,6 +149,7 @@ body {
 
 .transition-card:hover {
   transform: translateY(-6px);
+  box-shadow: var(--shadow-md) !important;
   box-shadow: 0 14px 30px rgba(8, 124, 112, 0.16), 0 0 14px rgba(6, 182, 212, 0.14) !important;
   border-color: var(--teal-primary) !important;
 }
@@ -261,11 +262,13 @@ body {
   font-size: 14.5px;
   padding: 8px 14px !important;
   border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
   transition: all 0.25s ease;
 }
 
 .custom-nav-link:hover {
   color: var(--teal-primary) !important;
+  background-color: var(--teal-subtle);
   background: linear-gradient(135deg, var(--teal-subtle) 0%, rgba(6, 182, 212, 0.15) 60%, rgba(237, 107, 80, 0.1) 100%);
   box-shadow: 0 4px 14px rgba(8, 124, 112, 0.2);
   transform: translateY(-2px);
@@ -273,6 +276,7 @@ body {
 
 .custom-nav-link.active {
   color: var(--teal-primary) !important;
+  background-color: var(--teal-subtle);
   background: linear-gradient(135deg, var(--teal-subtle) 0%, rgba(6, 182, 212, 0.18) 100%);
   font-weight: 700;
   box-shadow: inset 0 -2px 0 var(--teal-primary);
@@ -321,9 +325,12 @@ body {
 }
 
 .btn-teal:hover {
+  background-color: var(--teal-hover);
+  border-color: var(--teal-hover);
   background: linear-gradient(135deg, var(--teal-primary) 0%, #0284c7 100%);
   border-color: transparent;
   transform: translateY(-2px);
+  box-shadow: 0 6px 16px var(--teal-glow);
   box-shadow: 0 8px 20px rgba(8, 124, 112, 0.4), 0 0 12px rgba(2, 132, 199, 0.3);
 }
 
@@ -337,6 +344,7 @@ body {
 }
 
 .btn-outline-teal:hover {
+  background-color: var(--teal-primary);
   background: linear-gradient(135deg, var(--teal-primary) 0%, #06b6d4 100%);
   border-color: transparent;
   color: #ffffff;
