@@ -21,7 +21,7 @@ export default function Navbar({ theme, onToggleTheme }) {
         <div className="container">
           <Link to="/" className="navbar-brand d-flex align-items-center gap-2" onClick={closeMenu}>
             <span className="logo-box">HJ</span>
-            <span className="brand-name">Hala Jabban</span>
+            <span className="brand-name">Portfolio</span>
           </Link>
 
           <div className="d-flex align-items-center gap-2 order-lg-3">
