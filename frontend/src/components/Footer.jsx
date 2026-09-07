@@ -113,7 +113,8 @@ export default function Footer() {
         </div>
 
         <div className="border-top mt-5 pt-3 d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2 text-muted small">
-          <span>&copy; {new Date().getFullYear()} Hala Jabban. Built with React & Bootstrap.</span>
+          <span>&copy; {new Date().getFullYear()} Build by Hala Jabban.</span>
+         
           <span>Computer Engineering | Software Engineering</span>
         </div>
       </div>

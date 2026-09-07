@@ -35,14 +35,8 @@ export default function Navbar({ theme, onToggleTheme }) {
               <span className="theme-toggle-text">{theme === 'dark' ? 'Light' : 'Dark'}</span>
             </button>
 
-            <a
-              href="/cv.pdf"
-              download
-              className="btn btn-outline-teal btn-sm d-none d-sm-inline-flex align-items-center gap-1"
-            >
-              <i className="bi bi-file-earmark-arrow-down"></i>
-              <span>CV</span>
-            </a>
+      
+     
 
             <button
               className="navbar-toggler custom-toggler"
