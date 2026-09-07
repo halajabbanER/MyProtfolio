@@ -1,33 +1,57 @@
-import { useEffect, useMemo, useState } from 'react'
-import './App.css'
-import ProjectCard from './components/ProjectCard'
-import ProjectModal from './components/ProjectModal'
+import { useEffect, useState } from 'react'
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import HomePage from './pages/HomePage'
+import AboutPage from './pages/AboutPage'
+import ProjectsPage from './pages/ProjectsPage'
+import SkillsPage from './pages/SkillsPage'
+import JourneyPage from './pages/JourneyPage'
+import ContactPage from './pages/ContactPage'
 
-const nav = [['home', 'Home'], ['about', 'About'], ['projects', 'Projects'], ['contact', 'Contact']]
-const categories = ['All', 'Web', 'Hardware', 'Desktop']
+function ScrollToTop() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }, [pathname])
+
+  return null
+}
 
 export default function App() {
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light')
-  const [projects, setProjects] = useState([])
-  const [query, setQuery] = useState('')
-  const [filter, setFilter] = useState('All')
-  const [selected, setSelected] = useState(null)
-  const [menu, setMenu] = useState(false)
-  const [notice, setNotice] = useState('')
-  useEffect(() => { document.documentElement.dataset.theme = theme; localStorage.setItem('theme', theme) }, [theme])
-  useEffect(() => { fetch('/data/projects.json').then(r => r.json()).then(setProjects) }, [])
-  const shown = useMemo(() => projects.filter(p => (filter === 'All' || p.category === filter) && `${p.title} ${p.description} ${p.tags.join(' ')}`.toLowerCase().includes(query.toLowerCase())), [projects, filter, query])
-  const handleContact = e => { e.preventDefault(); const fields = new FormData(e.currentTarget); const valid = fields.get('name') && /^\S+@\S+\.\S+$/.test(fields.get('email')) && fields.get('message').trim().length >= 10; setNotice(valid ? 'Thank you — your message is ready to send.' : 'Please complete all fields with a valid email and a 10-character message.') }
-  return <div>
-    <header className="portfolio-navbar"><div className="container navbar-inner"><a className="brand" href="#home"><span className="logo-box">HJ</span><span>Hala Jabban</span></a><button className="hamburger" onClick={() => setMenu(!menu)} aria-label="Toggle navigation">☰</button><nav className={menu ? 'nav open' : 'nav'}>{nav.map(([id,label]) => <a href={`#${id}`} onClick={() => setMenu(false)} key={id}>{label}</a>)}</nav><button className="theme-toggle" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} aria-label="Toggle theme"><i>{theme === 'light' ? '☾' : '☀'}</i></button></div></header>
-    <main>
-      <section className="hero" id="home"><div className="container hero-inner"><h1>I am<br /><span>Hala Jabban</span></h1><p>Computer Engineering student and Junior Backend / Software Engineer with hands-on experience building RESTful APIs, database-driven systems, and responsive web applications.</p><div className="hero-buttons"><a className="primary-btn" href="#projects">▦ &nbsp; View Projects</a><a className="secondary-btn" href="/cv.pdf" download>⇩ &nbsp; Download CV</a></div></div></section>
-      <section className="about-section" id="about"><div className="container two-column"><div className="developer-card"><span className="code-symbol">&lt;/&gt;</span><div className="code-lines"><p><b>const</b> developer = {'{'}</p><p>&nbsp;&nbsp;name: <em>'Hala Jabban'</em>,</p><p>&nbsp;&nbsp;role: <em>'Backend Engineer'</em>,</p><p>&nbsp;&nbsp;location: <em>'Istanbul, Türkiye'</em></p><p>{'}'}</p></div></div><div className="about-copy"><span className="badge">ABOUT ME</span><h2>Building reliable systems from code to database.</h2><p>I am a Computer Engineering student at Fatih Sultan Mehmet Vakıf University and a Junior Backend / Software Engineer Intern at Pal4it. I build backend and full-stack software with C#, ASP.NET Core, SQL Server, Java, Python, and JavaScript.</p><div className="quick-stats"><div><b>2025</b><span>Backend internship</span></div><div><b>3</b><span>Languages</span></div><div><b>2027</b><span>Graduation</span></div></div></div></div></section>
-      <section className="projects-section" id="projects"><div className="container"><div className="section-heading"><span className="badge">MY WORK</span><h2>Featured projects</h2><p>A selection of applications and interfaces I have built while learning and growing.</p></div><div className="projects-toolbar"><label className="search-box">⌕<input value={query} onChange={e => setQuery(e.target.value)} placeholder="Search projects by name..." /></label><div className="filter-buttons">{categories.map(c => <button key={c} className={filter === c ? 'active' : ''} onClick={() => setFilter(c)}>{c}</button>)}</div></div><div className="project-grid">{shown.map(project => <ProjectCard key={project.id} project={project} onDetails={setSelected} />)}</div>{!shown.length && <p className="empty">No projects found.</p>}</div></section>
-      <section className="skills-section"><div className="container"><div className="section-heading"><span className="badge">SKILLS</span><h2>What I work with</h2></div><div className="skill-bars">{[['C# & ASP.NET Core',88],['SQL Server & EF Core',84],['Java & OOP',82],['JavaScript & Frontend',78]].map(([skill,value]) => <div key={skill}><p><span>{skill}</span><b>{value}%</b></p><i><em style={{width:`${value}%`}} /></i></div>)}</div></div></section>
-      <section className="contact-section" id="contact"><div className="container"><div className="section-heading"><span className="badge">GET IN TOUCH</span><h2>Let's work together</h2><p>Have a project in mind? I would love to hear about it.</p></div><div className="contact-layout"><form className="contact-form" onSubmit={handleContact}><h3>Send a message</h3><div className="form-row"><label>Name<input name="name" placeholder="Your name" /></label><label>Email<input name="email" type="email" placeholder="name@email.com" /></label></div><label>Message<textarea name="message" placeholder="Tell me about your project..." rows="5" /></label><button className="primary-btn" type="submit">Send message ↗</button>{notice && <p className="notice">{notice}</p>}</form><aside className="contact-card"><div className="map-pin">⌖</div><h3>Based in Istanbul</h3><p>Available for internships, collaborations, and backend or full-stack software opportunities.</p><a href="mailto:halajabban07@gmail.com">halajabban07@gmail.com</a><div className="socials"><a href="https://github.com/halajabbanER" target="_blank">GH</a><a href="https://www.linkedin.com/in/hala-jabban-b88001286" target="_blank">in</a></div></aside></div></div></section>
-    </main>
-    <footer><div className="container footer-grid"><div><a className="brand" href="#home"><span className="logo-box">HJ</span><span>Hala Jabban</span></a><p>Computer Engineering student and backend-focused software engineer crafting reliable, maintainable digital systems.</p></div><div><h4>Navigate</h4>{nav.map(([id,label]) => <a key={id} href={`#${id}`}>{label}</a>)}</div><div><h4>Connect</h4><a href="mailto:halajabban07@gmail.com">Email</a><a href="https://github.com/halajabbanER">GitHub</a><a href="https://www.linkedin.com/in/hala-jabban-b88001286">LinkedIn</a></div></div><div className="container copyright">© 2026 Hala Jabban. All rights reserved.</div></footer>
-    <ProjectModal project={selected} onClose={() => setSelected(null)} />
-  </div>
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem('portfolio-theme')
+    if (saved) return saved
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  })
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    document.documentElement.setAttribute('data-bs-theme', theme)
+    localStorage.setItem('portfolio-theme', theme)
+  }, [theme])
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
+  }
+
+  return (
+    <div className="portfolio-app d-flex flex-column min-vh-100">
+      <ScrollToTop />
+      <Navbar theme={theme} onToggleTheme={toggleTheme} />
+      <main className="flex-grow-1">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/skills" element={<SkillsPage />} />
+          <Route path="/journey" element={<JourneyPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  )
 }
