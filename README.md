@@ -45,11 +45,11 @@ A responsive personal portfolio for Hala Jabban, a Computer Engineering student 
 
 ### Installation
 
-Clone the repository and install the frontend dependencies:
+Clone the repository and install the dependencies:
 
 ```bash
 git clone https://github.com/halajabbanER/MyProtfolio.git
-cd MyProtfolio/frontend
+cd MyProtfolio
 npm install
 ```
 
@@ -62,13 +62,6 @@ npm run dev
 ```
 
 The Vite development server will print the local URL, usually `http://localhost:5173`.
-
-You can also run Vite directly from the frontend directory:
-
-```bash
-cd frontend
-npm run dev
-```
 
 ## Available Scripts
 
@@ -112,6 +105,14 @@ frontend/
 - `/skills` - Technical skills and tools
 - `/journey` - Experience and education timeline
 - `/contact` - Contact form and professional profiles
+
+## Deploying to Vercel
+
+Create a Vercel project with the repository root as the Root Directory. Vercel will use the existing `vercel.json` configuration:
+
+- Build command: `npm run build`
+- Output directory: `frontend/dist`
+- Framework preset: `Vite`
 
 ## License
 

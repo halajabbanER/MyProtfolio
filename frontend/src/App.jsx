@@ -8,6 +8,7 @@ import ProjectsPage from './pages/ProjectsPage'
 import SkillsPage from './pages/SkillsPage'
 import JourneyPage from './pages/JourneyPage'
 import ContactPage from './pages/ContactPage'
+import { LanguageProvider } from './contexts/LanguageContext'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -37,21 +38,23 @@ export default function App() {
   }
 
   return (
-    <div className="portfolio-app d-flex flex-column min-vh-100">
-      <ScrollToTop />
-      <Navbar theme={theme} onToggleTheme={toggleTheme} />
-      <main className="flex-grow-1">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/skills" element={<SkillsPage />} />
-          <Route path="/journey" element={<JourneyPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </main>
-      <Footer />
-    </div>
+    <LanguageProvider>
+      <div className="portfolio-app d-flex flex-column min-vh-100">
+        <ScrollToTop />
+        <Navbar theme={theme} onToggleTheme={toggleTheme} />
+        <main className="flex-grow-1">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/skills" element={<SkillsPage />} />
+            <Route path="/journey" element={<JourneyPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </LanguageProvider>
   )
 }

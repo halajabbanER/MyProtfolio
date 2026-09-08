@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
+import { useLanguage } from '../contexts/LanguageContext'
 
 const links = [
   { to: '/', label: 'Home', icon: 'bi-house-door' },
@@ -12,6 +13,7 @@ const links = [
 
 export default function Navbar({ theme, onToggleTheme }) {
   const [isOpen, setIsOpen] = useState(false)
+  const { language, setLanguage, t } = useLanguage()
 
   const closeMenu = () => setIsOpen(false)
 
@@ -32,11 +34,18 @@ export default function Navbar({ theme, onToggleTheme }) {
               title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               <i className={`bi ${theme === 'dark' ? 'bi-sun-fill text-warning' : 'bi-moon-stars-fill text-primary'}`}></i>
-              <span className="theme-toggle-text">{theme === 'dark' ? 'Light' : 'Dark'}</span>
+              <span className="theme-toggle-text">{theme === 'dark' ? t.nav.themeLight : t.nav.themeDark}</span>
             </button>
 
-      
-     
+            <button
+              className="language-toggle-btn btn btn-sm d-flex align-items-center gap-1"
+              onClick={() => setLanguage(language === 'en' ? 'ar' : language === 'ar' ? 'tr' : 'en')}
+              aria-label={t.nav.langTitle}
+              title={t.nav.langTitle}
+            >
+              <i className="bi bi-translate"></i>
+              <span>{language.toUpperCase()}</span>
+            </button>
 
             <button
               className="navbar-toggler custom-toggler"
@@ -62,7 +71,7 @@ export default function Navbar({ theme, onToggleTheme }) {
                     onClick={closeMenu}
                   >
                     <i className={`bi ${link.icon}`}></i>
-                    <span>{link.label}</span>
+                    <span>{t.nav[link.to === '/' ? 'home' : link.to.slice(1)] || link.label}</span>
                   </NavLink>
                 </li>
               ))}

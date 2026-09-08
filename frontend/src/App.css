@@ -308,6 +308,22 @@ body {
   background: var(--teal-subtle);
 }
 
+.language-toggle-btn {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  color: var(--text-ink);
+  font-weight: 700;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.language-toggle-btn:hover {
+  border-color: var(--teal-primary);
+  background: var(--teal-subtle);
+}
+
 /* ============================================================
    BUTTONS & BADGES
    ============================================================ */
