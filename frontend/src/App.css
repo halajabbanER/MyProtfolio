@@ -8,22 +8,22 @@
   --font-mono: 'DM Mono', monospace;
 
   /* Color Palette - Light Mode */
-  --bg-app: #f6f8f7;
+  --bg-app: #f5f7fb;
   --bg-card: #ffffff;
-  --bg-subtle: #edf2f0;
+  --bg-subtle: #eaf0f8;
   --bg-glass: rgba(255, 255, 255, 0.85);
 
-  --text-ink: #142022;
-  --text-muted: #5e6f71;
-  --border-color: #dbe4e0;
+  --text-ink: #172033;
+  --text-muted: #5c687b;
+  --border-color: #d9e1ed;
 
-  --teal-primary: #087c70;
-  --teal-hover: #066359;
-  --teal-subtle: #e4f3f0;
-  --teal-glow: rgba(8, 124, 112, 0.22);
+  --teal-primary: #2563eb;
+  --teal-hover: #1d4ed8;
+  --teal-subtle: #e8eefc;
+  --teal-glow: rgba(37, 99, 235, 0.22);
 
-  --coral-accent: #ed6b50;
-  --coral-subtle: #fdeee9;
+  --coral-accent: #d97706;
+  --coral-subtle: #fff3df;
 
   --shadow-sm: 0 4px 12px rgba(20, 32, 34, 0.05);
   --shadow-md: 0 12px 28px rgba(20, 32, 34, 0.08);
@@ -36,22 +36,22 @@
 
 [data-theme='dark'],
 [data-bs-theme='dark'] {
-  --bg-app: #0e1516;
-  --bg-card: #152021;
-  --bg-subtle: #1c2b2c;
-  --bg-glass: rgba(21, 32, 33, 0.88);
+  --bg-app: #0d1424;
+  --bg-card: #141e31;
+  --bg-subtle: #1a2942;
+  --bg-glass: rgba(20, 30, 49, 0.88);
 
-  --text-ink: #eff5f3;
-  --text-muted: #9eb1ae;
-  --border-color: #27393a;
+  --text-ink: #f1f5fb;
+  --text-muted: #aab7ca;
+  --border-color: #2a3a55;
 
-  --teal-primary: #41c7b7;
-  --teal-hover: #2db5a4;
-  --teal-subtle: #163733;
-  --teal-glow: rgba(65, 199, 183, 0.25);
+  --teal-primary: #60a5fa;
+  --teal-hover: #3b82f6;
+  --teal-subtle: #172e55;
+  --teal-glow: rgba(96, 165, 250, 0.25);
 
-  --coral-accent: #f48b73;
-  --coral-subtle: #3a221d;
+  --coral-accent: #fbbf24;
+  --coral-subtle: #3b2d12;
 
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.45);
@@ -88,7 +88,7 @@ body {
 }
 
 .text-teal-gradient {
-  background: linear-gradient(135deg, var(--teal-primary) 0%, #22d3ee 100%);
+  background: linear-gradient(135deg, var(--teal-primary) 0%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -222,7 +222,7 @@ body {
 }
 
 .navbar-brand:hover .logo-box {
-  background: linear-gradient(135deg, #087c70 0%, #06b6d4 45%, #ed6b50 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #38bdf8 45%, #d97706 100%);
   background-size: 200% 200%;
   animation: gradientShift 2.5s ease infinite;
   color: #ffffff;
@@ -236,7 +236,7 @@ body {
 }
 
 .navbar-brand:hover .brand-name {
-  background: linear-gradient(135deg, #087c70 0%, #06b6d4 50%, #ed6b50 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #38bdf8 50%, #d97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transform: translateX(3px);
@@ -266,14 +266,14 @@ body {
 
 .custom-nav-link:hover {
   color: var(--teal-primary) !important;
-  background: linear-gradient(135deg, var(--teal-subtle) 0%, rgba(6, 182, 212, 0.15) 60%, rgba(237, 107, 80, 0.1) 100%);
+  background: linear-gradient(135deg, var(--teal-subtle) 0%, rgba(56, 189, 248, 0.15) 60%, rgba(217, 119, 6, 0.1) 100%);
   box-shadow: 0 4px 14px rgba(8, 124, 112, 0.2);
   transform: translateY(-2px);
 }
 
 .custom-nav-link.active {
   color: var(--teal-primary) !important;
-  background: linear-gradient(135deg, var(--teal-subtle) 0%, rgba(6, 182, 212, 0.18) 100%);
+  background: linear-gradient(135deg, var(--teal-subtle) 0%, rgba(56, 189, 248, 0.18) 100%);
   font-weight: 700;
   box-shadow: inset 0 -2px 0 var(--teal-primary);
 }
@@ -353,7 +353,7 @@ body {
 }
 
 .btn-outline-teal:hover {
-  background: linear-gradient(135deg, var(--teal-primary) 0%, #06b6d4 100%);
+  background: linear-gradient(135deg, var(--teal-primary) 0%, #38bdf8 100%);
   border-color: transparent;
   color: #ffffff;
   transform: translateY(-2px);
