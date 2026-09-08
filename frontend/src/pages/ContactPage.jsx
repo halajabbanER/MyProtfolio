@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useLanguage } from '../contexts/LanguageContext'
 
 export default function ContactPage() {
+  const { t } = useLanguage()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -39,7 +41,7 @@ export default function ContactPage() {
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       setStatus({
         type: 'danger',
-        message: 'Please complete all required fields.',
+        message: t.contact.errorFields,
       })
       setSubmitting(false)
       return
@@ -49,7 +51,7 @@ export default function ContactPage() {
     if (!emailRegex.test(formData.email.trim())) {
       setStatus({
         type: 'danger',
-        message: 'Please enter a valid email address.',
+        message: t.contact.errorEmail,
       })
       setSubmitting(false)
       return
@@ -58,7 +60,7 @@ export default function ContactPage() {
     if (formData.message.trim().length < 10) {
       setStatus({
         type: 'danger',
-        message: 'Your message should be at least 10 characters long.',
+        message: t.contact.errorLength,
       })
       setSubmitting(false)
       return
@@ -68,7 +70,7 @@ export default function ContactPage() {
     setTimeout(() => {
       setStatus({
         type: 'success',
-        message: 'Thank you for reaching out! Your message has been prepared. I will get back to you as soon as possible.',
+        message: t.contact.successMsg,
       })
       setFormData({
         name: '',
@@ -86,10 +88,10 @@ export default function ContactPage() {
       <div className="container">
         {/* Header */}
         <div className="text-center max-w-700 mx-auto mb-5">
-          <span className="badge category-badge mb-2">GET IN TOUCH</span>
-          <h1 className="fw-black display-5 mb-3">Let's Connect & Collaborate</h1>
+          <span className="badge category-badge mb-2">{t.contact.badge}</span>
+          <h1 className="fw-black display-5 mb-3">{t.contact.title}</h1>
           <p className="lead text-muted">
-            Have a project in mind, an engineering opportunity, or simply want to chat about software development? Feel free to reach out.
+            {t.contact.lead}
           </p>
         </div>
 
@@ -99,7 +101,7 @@ export default function ContactPage() {
             <div className="card border-0 shadow-sm p-4 p-md-5 rounded-4">
               <h2 className="h4 fw-bold mb-4 d-flex align-items-center gap-2">
                 <i className="bi bi-chat-square-text-fill text-teal"></i>
-                <span>Send a Direct Message</span>
+                <span>{t.contact.formTitle}</span>
               </h2>
 
               {status.message && (
@@ -122,7 +124,7 @@ export default function ContactPage() {
                 <div className="row g-3 mb-3">
                   <div className="col-md-6">
                     <label htmlFor="name" className="form-label fw-bold small text-muted">
-                      Your Name <span className="text-danger">*</span>
+                      {t.contact.nameLabel} <span className="text-danger">*</span>
                     </label>
                     <div className="input-group">
                       <span className="input-group-text bg-transparent">
@@ -133,7 +135,7 @@ export default function ContactPage() {
                         className="form-control"
                         id="name"
                         name="name"
-                        placeholder="e.g. Sarah Connor"
+                        placeholder={t.contact.namePlaceholder}
                         value={formData.name}
                         onChange={handleChange}
                         required
@@ -143,7 +145,7 @@ export default function ContactPage() {
 
                   <div className="col-md-6">
                     <label htmlFor="email" className="form-label fw-bold small text-muted">
-                      Your Email <span className="text-danger">*</span>
+                      {t.contact.emailLabel} <span className="text-danger">*</span>
                     </label>
                     <div className="input-group">
                       <span className="input-group-text bg-transparent">
@@ -154,7 +156,7 @@ export default function ContactPage() {
                         className="form-control"
                         id="email"
                         name="email"
-                        placeholder="e.g. name@example.com"
+                        placeholder={t.contact.emailPlaceholder}
                         value={formData.email}
                         onChange={handleChange}
                         required
@@ -165,7 +167,7 @@ export default function ContactPage() {
 
                 <div className="mb-3">
                   <label htmlFor="phone" className="form-label fw-bold small text-muted">
-                    Phone / Mobile Number <span className="text-muted fw-normal">(Optional)</span>
+                    {t.contact.phoneLabel} <span className="text-muted fw-normal">{t.contact.phoneOptional}</span>
                   </label>
                   <div className="input-group">
                     <span className="input-group-text bg-transparent">
@@ -185,7 +187,7 @@ export default function ContactPage() {
 
                 <div className="mb-3">
                   <label htmlFor="subject" className="form-label fw-bold small text-muted">
-                    Inquiry Topic
+                    {t.contact.topicLabel}
                   </label>
                   <select
                     className="form-select"
@@ -194,24 +196,24 @@ export default function ContactPage() {
                     value={formData.subject}
                     onChange={handleChange}
                   >
-                    <option value="Mobile App Development">Mobile App Development (React Native / iOS & Android)</option>
-                    <option value="Web & Mobile Development">Web & Mobile Project Collaboration</option>
-                    <option value="Software Engineering Opportunity / Internship">Software Engineering Opportunity / Internship</option>
-                    <option value="Backend Consulting">Backend & API Development</option>
-                    <option value="General Question">General Networking & Discussion</option>
+                    <option value="Mobile App Development">{t.contact.topicOptions.mobile}</option>
+                    <option value="Web & Mobile Development">{t.contact.topicOptions.webMobile}</option>
+                    <option value="Software Engineering Opportunity / Internship">{t.contact.topicOptions.internship}</option>
+                    <option value="Backend Consulting">{t.contact.topicOptions.backend}</option>
+                    <option value="General Question">{t.contact.topicOptions.general}</option>
                   </select>
                 </div>
 
                 <div className="mb-4">
                   <label htmlFor="message" className="form-label fw-bold small text-muted">
-                    Message Content <span className="text-danger">*</span>
+                    {t.contact.messageLabel} <span className="text-danger">*</span>
                   </label>
                   <textarea
                     className="form-control"
                     id="message"
                     name="message"
                     rows="6"
-                    placeholder="Tell me about your project, team, or opportunity..."
+                    placeholder={t.contact.messagePlaceholder}
                     value={formData.message}
                     onChange={handleChange}
                     required
@@ -226,12 +228,12 @@ export default function ContactPage() {
                   {submitting ? (
                     <>
                       <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                      <span>Sending message...</span>
+                      <span>{t.contact.sending}</span>
                     </>
                   ) : (
                     <>
                       <i className="bi bi-send-fill"></i>
-                      <span>Send Message</span>
+                      <span>{t.contact.sendBtn}</span>
                     </>
                   )}
                 </button>
@@ -248,7 +250,7 @@ export default function ContactPage() {
 
               <h2 className="h3 fw-bold mb-2">Hala Jabban</h2>
               <p className="text-light-muted mb-4">
-                Computer Engineering Student & Backend / Software Engineer based in Istanbul, Turkiye.
+                {t.about.lead}
               </p>
 
               <div className="d-flex flex-column gap-3 mb-4">
@@ -257,8 +259,8 @@ export default function ContactPage() {
                     <i className="bi bi-geo-alt"></i>
                   </div>
                   <div>
-                    <small className="text-light-muted d-block">Location</small>
-                    <span className="fw-semibold">Istanbul, Turkiye</span>
+                    <small className="text-light-muted d-block">{t.contact.locationTitle}</small>
+                    <span className="fw-semibold">{t.contact.locationVal}</span>
                   </div>
                 </div>
 
@@ -268,7 +270,7 @@ export default function ContactPage() {
                       <i className="bi bi-envelope"></i>
                     </div>
                     <div className="text-truncate">
-                      <small className="text-light-muted d-block">Email Address</small>
+                      <small className="text-light-muted d-block">{t.contact.emailTitle}</small>
                       <a href="mailto:halajabban07@gmail.com" className="text-white text-decoration-none fw-semibold">
                         halajabban07@gmail.com
                       </a>
@@ -281,7 +283,7 @@ export default function ContactPage() {
                     title="Copy email address"
                   >
                     <i className={`bi ${copied ? 'bi-check-lg' : 'bi-clipboard'} me-1`}></i>
-                    <span>{copied ? 'Copied!' : 'Copy'}</span>
+                    <span>{copied ? t.contact.copied : t.contact.copy}</span>
                   </button>
                 </div>
 
@@ -291,7 +293,7 @@ export default function ContactPage() {
                       <i className="bi bi-telephone-fill"></i>
                     </div>
                     <div className="text-truncate">
-                      <small className="text-light-muted d-block">Phone / WhatsApp</small>
+                      <small className="text-light-muted d-block">{t.contact.phoneTitle}</small>
                       <a href="tel:+905511760010" className="text-white text-decoration-none fw-semibold">
                         +90 551 176 0010
                       </a>
@@ -314,7 +316,7 @@ export default function ContactPage() {
                       title="Copy phone number"
                     >
                       <i className={`bi ${copiedPhone ? 'bi-check-lg' : 'bi-clipboard'} me-1`}></i>
-                      <span>{copiedPhone ? 'Copied!' : 'Copy'}</span>
+                      <span>{copiedPhone ? t.contact.copied : t.contact.copy}</span>
                     </button>
                   </div>
                 </div>
@@ -324,14 +326,14 @@ export default function ContactPage() {
                     <i className="bi bi-translate"></i>
                   </div>
                   <div>
-                    <small className="text-light-muted d-block">Spoken Languages</small>
-                    <span className="fw-semibold">Arabic (Native), Turkish, English</span>
+                    <small className="text-light-muted d-block">{t.contact.languagesTitle}</small>
+                    <span className="fw-semibold">{t.contact.languagesVal}</span>
                   </div>
                 </div>
               </div>
 
               <div className="pt-4 border-top border-light border-opacity-25 mt-2">
-                <h6 className="text-uppercase small fw-bold text-light-muted mb-3">Professional Profiles</h6>
+                <h6 className="text-uppercase small fw-bold text-light-muted mb-3">{t.contact.profilesTitle}</h6>
                 <div className="d-flex gap-2">
                   <a
                     href="https://github.com/halajabbanER"
@@ -361,7 +363,7 @@ export default function ContactPage() {
                   className="btn btn-coral w-100 py-2 d-inline-flex align-items-center justify-content-center gap-2 fw-bold"
                 >
                   <i className="bi bi-file-earmark-arrow-down-fill"></i>
-                  <span>Download Complete Resume</span>
+                  <span>{t.contact.resumeDownload}</span>
                 </a>
               </div>
             </div>

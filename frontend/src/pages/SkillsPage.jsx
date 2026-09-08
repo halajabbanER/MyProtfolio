@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../contexts/LanguageContext'
 
 const skillCategories = [
   {
@@ -68,6 +69,7 @@ const toolkit = [
 ]
 
 export default function SkillsPage() {
+  const { t } = useLanguage()
   const [activeTab, setActiveTab] = useState('all')
 
   const filteredToolkit = activeTab === 'all'
@@ -79,10 +81,10 @@ export default function SkillsPage() {
       <div className="container">
         {/* Header */}
         <div className="text-center max-w-700 mx-auto mb-5">
-          <span className="badge category-badge mb-2">TECHNICAL EXPERTISE</span>
-          <h1 className="fw-black display-5 mb-3">Skills, Tools & Engineering Stack</h1>
+          <span className="badge category-badge mb-2">{t.skills.badge}</span>
+          <h1 className="fw-black display-5 mb-3">{t.skills.title}</h1>
           <p className="lead text-muted">
-            A comprehensive overview of the programming languages, frameworks, databases, and tooling I use daily.
+            {t.skills.lead}
           </p>
         </div>
 
@@ -99,8 +101,12 @@ export default function SkillsPage() {
                 </div>
 
                 <div className="d-flex flex-column gap-4">
-                  {group.skills.map((skill) => (
-                    <div key={skill.name} className="skill-item-block">
+                  {group.skills.map((skill, skillIndex) => (
+                    <div
+                      key={skill.name}
+                      className="skill-item-block skill-reveal"
+                      style={{ '--skill-delay': `${skillIndex * 90}ms` }}
+                    >
                       <div className="d-flex justify-content-between align-items-center mb-1">
                         <span className="fw-bold">{skill.name}</span>
                         <span className="badge bg-teal-subtle text-teal fw-mono font-monospace">
@@ -108,14 +114,18 @@ export default function SkillsPage() {
                         </span>
                       </div>
                       <p className="text-muted small mb-2">{skill.desc}</p>
-                      <div className="progress skill-progress" style={{ height: '8px' }}>
+                      <div
+                        className="progress skill-progress"
+                        style={{ height: '10px' }}
+                        role="progressbar"
+                        aria-label={`${skill.name}: ${skill.level}%`}
+                        aria-valuenow={skill.level}
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      >
                         <div
-                          className="progress-bar bg-teal rounded-pill"
-                          role="progressbar"
-                          style={{ width: `${skill.level}%` }}
-                          aria-valuenow={skill.level}
-                          aria-valuemin="0"
-                          aria-valuemax="100"
+                          className="progress-bar progress-bar-striped progress-bar-animated bg-teal rounded-pill"
+                          style={{ '--skill-level': `${skill.level}%` }}
                         ></div>
                       </div>
                     </div>
@@ -130,8 +140,8 @@ export default function SkillsPage() {
         <div className="toolkit-section py-4 border-top">
           <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
             <div>
-              <span className="badge category-badge mb-1">TOOLKIT</span>
-              <h2 className="h3 fw-bold mb-0">Technologies & Platforms</h2>
+              <span className="badge category-badge mb-1">{t.skills.toolkitBadge}</span>
+              <h2 className="h3 fw-bold mb-0">{t.skills.toolkitTitle}</h2>
             </div>
 
             {/* Quick Filter Buttons */}
@@ -143,7 +153,7 @@ export default function SkillsPage() {
                   className={`btn btn-sm ${activeTab === tab ? 'btn-teal' : 'btn-outline-custom'}`}
                   onClick={() => setActiveTab(tab)}
                 >
-                  {tab === 'all' ? 'All Tech' : tab}
+                  {tab === 'all' ? t.skills.allTech : tab}
                 </button>
               ))}
             </div>
@@ -168,17 +178,17 @@ export default function SkillsPage() {
 
         {/* Bottom CTA */}
         <div className="mt-5 p-4 rounded-4 bg-subtle text-center">
-          <h3 className="h5 fw-bold mb-2">Want to see these skills in action?</h3>
+          <h3 className="h5 fw-bold mb-2">{t.skills.ctaTitle}</h3>
           <p className="text-muted small mb-3">
-            Explore the live projects and case studies where these technologies were applied.
+            {t.skills.ctaDesc}
           </p>
           <div className="d-flex justify-content-center gap-3">
             <Link to="/projects" className="btn btn-teal d-inline-flex align-items-center gap-2">
-              <span>View Practical Projects</span>
+              <span>{t.skills.ctaBtn}</span>
               <i className="bi bi-arrow-right"></i>
             </Link>
             <Link to="/contact" className="btn btn-outline-custom">
-              <span>Get in Touch</span>
+              <span>{t.skills.contactBtn}</span>
             </Link>
           </div>
         </div>

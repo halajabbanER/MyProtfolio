@@ -4,7 +4,7 @@ import { translations } from '../translations'
 const LanguageContext = createContext(null)
 
 export function LanguageProvider({ children }) {
-  const [language, setLanguage] = useState(() => localStorage.getItem('portfolio-language') || 'en')
+  const [language, setLanguage] = useState(() => localStorage.getItem('portfolio-language') || 'ar')
 
   useEffect(() => {
     const direction = language === 'ar' ? 'rtl' : 'ltr'

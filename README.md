@@ -70,7 +70,7 @@ Run these commands from the repository root:
 | Command | Description |
 | --- | --- |
 | `npm run dev` | Start the Vite development server |
-| `npm run build` | Create a production build in `frontend/dist` |
+| `npm run build` | Create a production build in `dist` |
 | `npm run lint` | Run Oxlint |
 | `npm run preview` | Preview the production build locally |
 
@@ -111,7 +111,7 @@ frontend/
 Create a Vercel project with the repository root as the Root Directory. Vercel will use the existing `vercel.json` configuration:
 
 - Build command: `npm run build`
-- Output directory: `frontend/dist`
+- Output directory: `dist`
 - Framework preset: `Vite`
 
 ## License

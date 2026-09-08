@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../contexts/LanguageContext'
 
 const experiences = [
   {
@@ -55,15 +56,16 @@ const experiences = [
 ]
 
 export default function JourneyPage() {
+  const { t } = useLanguage()
   return (
     <div className="journey-page animate-fade-in py-5">
       <div className="container">
         {/* Header */}
         <div className="text-center max-w-700 mx-auto mb-5">
-          <span className="badge category-badge mb-2">CAREER & ACADEMICS</span>
-          <h1 className="fw-black display-5 mb-3">Professional Experience & Education</h1>
+          <span className="badge category-badge mb-2">{t.journey.badge}</span>
+          <h1 className="fw-black display-5 mb-3">{t.journey.title}</h1>
           <p className="lead text-muted">
-            The progression from foundational computer engineering education to hands-on industry application.
+            {t.journey.lead}
           </p>
         </div>
 
@@ -101,7 +103,7 @@ export default function JourneyPage() {
 
                   <p className="text-muted mb-4">{item.description}</p>
 
-                  <h6 className="fw-bold small text-uppercase text-muted mb-2">Key Contributions & Highlights:</h6>
+                  <h6 className="fw-bold small text-uppercase text-muted mb-2">{t.journey.keyContributions}</h6>
                   <ul className="list-unstyled d-flex flex-column gap-2 mb-4">
                     {item.achievements.map((ach, i) => (
                       <li key={i} className="d-flex align-items-start gap-2 small text-muted">
@@ -129,27 +131,27 @@ export default function JourneyPage() {
           <div className="col-md-4">
             <div className="card p-4 border-0 shadow-sm h-100 rounded-4">
               <i className="bi bi-code-square display-5 text-teal mb-3"></i>
-              <h3 className="h5 fw-bold mb-2">Practical Experience</h3>
+              <h3 className="h5 fw-bold mb-2">{t.journey.highlights[0].title}</h3>
               <p className="text-muted small mb-0">
-                Hands-on internship work handling APIs, backend data models, and mobile React Native interfaces.
+                {t.journey.highlights[0].desc}
               </p>
             </div>
           </div>
           <div className="col-md-4">
             <div className="card p-4 border-0 shadow-sm h-100 rounded-4">
               <i className="bi bi-mortarboard-fill display-5 text-coral mb-3"></i>
-              <h3 className="h5 fw-bold mb-2">Strong Academic Core</h3>
+              <h3 className="h5 fw-bold mb-2">{t.journey.highlights[1].title}</h3>
               <p className="text-muted small mb-0">
-                Rigorous Computer Engineering fundamentals at Fatih Sultan Mehmet Vakif University.
+                {t.journey.highlights[1].desc}
               </p>
             </div>
           </div>
           <div className="col-md-4">
             <div className="card p-4 border-0 shadow-sm h-100 rounded-4">
               <i className="bi bi-rocket-takeoff-fill display-5 text-primary mb-3"></i>
-              <h3 className="h5 fw-bold mb-2">Ready for Next Challenge</h3>
+              <h3 className="h5 fw-bold mb-2">{t.journey.highlights[2].title}</h3>
               <p className="text-muted small mb-0">
-                Eager to contribute high quality, reliable software to forward-thinking engineering teams.
+                {t.journey.highlights[2].desc}
               </p>
             </div>
           </div>
@@ -159,10 +161,10 @@ export default function JourneyPage() {
         <div className="text-center mt-5">
           <a href="/cv.pdf" download className="btn btn-teal btn-lg px-4 me-3 d-inline-flex align-items-center gap-2">
             <i className="bi bi-file-earmark-pdf"></i>
-            <span>Download Full Resume</span>
+            <span>{t.journey.resumeBtn}</span>
           </a>
           <Link to="/contact" className="btn btn-outline-custom btn-lg px-4 d-inline-flex align-items-center gap-2">
-            <span>Contact Hala</span>
+            <span>{t.journey.contactBtn}</span>
             <i className="bi bi-envelope"></i>
           </Link>
         </div>

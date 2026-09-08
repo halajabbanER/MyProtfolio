@@ -1,4 +1,7 @@
+import { useLanguage } from '../contexts/LanguageContext'
+
 export default function ProjectCard({ project, onDetails }) {
+  const { t } = useLanguage()
   return (
     <article className="card project-card h-100 shadow-sm border-0">
       <div className="project-preview-wrapper position-relative overflow-hidden">
@@ -6,7 +9,7 @@ export default function ProjectCard({ project, onDetails }) {
           type="button"
           className="project-preview-btn w-100 p-0 border-0 bg-transparent text-start"
           onClick={() => onDetails(project)}
-          aria-label={`Open ${project.title} project details`}
+          aria-label={`${t.projects.modalTech}: ${project.title}`}
         >
           <img
             src={project.image}
@@ -16,7 +19,7 @@ export default function ProjectCard({ project, onDetails }) {
           />
           <div className="project-overlay d-flex align-items-center justify-content-center">
             <span className="badge bg-dark-glass px-3 py-2 d-flex align-items-center gap-1 text-white">
-              <i className="bi bi-zoom-in"></i> Quick Overview
+              <i className="bi bi-zoom-in"></i> {t.projects.showing}
             </span>
           </div>
         </button>
@@ -59,17 +62,17 @@ export default function ProjectCard({ project, onDetails }) {
               rel="noreferrer"
             >
               <i className="bi bi-box-arrow-up-right"></i>
-              <span>Live Demo</span>
+              <span>{t.projects.modalDemo}</span>
             </a>
           )}
           <button
             type="button"
             className="btn btn-sm btn-outline-secondary-custom d-inline-flex align-items-center gap-1 justify-content-center"
             onClick={() => onDetails(project)}
-            title="Read full project details"
+            title={t.projects.modalTech}
           >
             <i className="bi bi-info-circle"></i>
-            <span>Details</span>
+            <span>{t.projects.modalTech}</span>
           </button>
         </div>
       </div>

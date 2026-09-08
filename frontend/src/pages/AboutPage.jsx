@@ -1,31 +1,29 @@
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../contexts/LanguageContext'
 
 export default function AboutPage() {
-  const languages = [
-    { name: 'Arabic', level: 'Native', desc: 'Mother tongue, full native fluency in reading and writing.', proficiency: 100 },
-    { name: 'Turkish', level: 'Fluent / Academic', desc: 'Daily communication, university coursework, and technical documentation.', proficiency: 95 },
-    { name: 'English', level: 'Professional Working', desc: 'Technical documentation, global engineering collaboration, and codebases.', proficiency: 90 },
-  ]
+  const { t } = useLanguage()
+  const languages = t.about.languages
 
   const values = [
     {
-      title: 'Reliable Architecture',
-      desc: 'Prioritizing structured code, clear API contracts, and database integrity over hasty shortcuts.',
+      title: t.about.values[0].title,
+      desc: t.about.values[0].desc,
       icon: 'bi-diagram-3-fill',
     },
     {
-      title: 'Continuous Curiosity',
-      desc: 'Constantly absorbing new paradigms, whether deep-diving into microservices, TypeScript, or digital logic.',
+      title: t.about.values[1].title,
+      desc: t.about.values[1].desc,
       icon: 'bi-lightbulb-fill',
     },
     {
-      title: 'User-Centric Execution',
-      desc: 'Ensuring that backend logic seamlessly connects with accessible, lightning-fast user interfaces.',
+      title: t.about.values[2].title,
+      desc: t.about.values[2].desc,
       icon: 'bi-heart-pulse-fill',
     },
     {
-      title: 'Collaborative Problem Solving',
-      desc: 'Clear communication, git version control best practices, and empathy within agile teams.',
+      title: t.about.values[3].title,
+      desc: t.about.values[3].desc,
       icon: 'bi-people-fill',
     },
   ]
@@ -35,10 +33,10 @@ export default function AboutPage() {
       <div className="container">
         {/* Page Header */}
         <div className="text-center max-w-700 mx-auto mb-5">
-          <span className="badge category-badge mb-2">ABOUT ME</span>
-          <h1 className="fw-black display-5 mb-3">Architecting Systems from Code to Database</h1>
+          <span className="badge category-badge mb-2">{t.about.badge}</span>
+          <h1 className="fw-black display-5 mb-3">{t.about.title}</h1>
           <p className="lead text-muted">
-            Driven by curiosity, structured thinking, and a commitment to writing clean, reliable software.
+            {t.about.lead}
           </p>
         </div>
 
@@ -46,25 +44,24 @@ export default function AboutPage() {
         <div className="row g-5 align-items-center mb-5 pb-4">
           <div className="col-lg-6">
             <div className="pe-lg-3">
-              <h2 className="h3 fw-bold mb-3">Who I Am & What Drives Me</h2>
+              <h2 className="h3 fw-bold mb-3">{t.about.whoTitle}</h2>
               <p className="text-muted mb-3">
-                I am a <strong>Computer Engineering student</strong> at <strong>Fatih Sultan Mehmet Vakif University</strong> in Istanbul, Turkiye.
-                My passion and primary specialization is <strong>Full-Stack Web Development</strong>, crafting high-performance web platforms, intuitive frontends, and reliable backend architectures.
+                {t.about.p1}
               </p>
               <p className="text-muted mb-3">
-                In 2025, during my internship as a <strong>Junior Backend / Software Engineer at Pal4it</strong>, I designed and optimized RESTful APIs and database schemas. In 2026, at <strong>Yukatech</strong>, I contributed as a <strong>React &amp; Web Developer</strong>, developing dynamic, responsive web interfaces and modern user experiences.
+                {t.about.p2}
               </p>
               <p className="text-muted mb-4">
-                Whether developing comprehensive web applications with React, ASP.NET Core, and SQL Server, or exploring modern web technologies, I treat software engineering as an art of disciplined problem-solving and clean architecture.
+                {t.about.p3}
               </p>
 
               <div className="d-flex flex-wrap gap-3">
                 <a href="/cv.pdf" download className="btn btn-teal d-inline-flex align-items-center gap-2">
                   <i className="bi bi-download"></i>
-                  <span>Download Curriculum Vitae</span>
+                  <span>{t.about.downloadCv}</span>
                 </a>
                 <Link to="/journey" className="btn btn-outline-custom d-inline-flex align-items-center gap-2">
-                  <span>View Timeline & Journey</span>
+                  <span>{t.about.viewTimeline}</span>
                   <i className="bi bi-arrow-right"></i>
                 </Link>
               </div>
@@ -75,38 +72,38 @@ export default function AboutPage() {
             <div className="about-card p-4 rounded-4 shadow-sm border">
               <div className="d-flex align-items-center gap-2 mb-3">
                 <i className="bi bi-terminal-fill text-teal fs-4"></i>
-                <span className="fw-bold">Engineering Snapshot</span>
+                <span className="fw-bold">{t.about.snapshotTitle}</span>
               </div>
 
               <div className="row g-3">
                 <div className="col-sm-6">
                   <div className="p-3 bg-subtle rounded-3 h-100">
-                    <small className="text-muted d-block text-uppercase fw-bold">Degree</small>
-                    <span className="fw-bold">B.Sc. Computer Engineering</span>
-                    <small className="text-teal d-block">FSMVU (2023 - 2027)</small>
+                    <small className="text-muted d-block text-uppercase fw-bold">{t.about.degreeLabel}</small>
+                    <span className="fw-bold">{t.about.degreeVal}</span>
+                    <small className="text-teal d-block">{t.about.degreeSub}</small>
                   </div>
                 </div>
 
                 <div className="col-sm-6">
                   <div className="p-3 bg-subtle rounded-3 h-100">
-                    <small className="text-muted d-block text-uppercase fw-bold">Focus Areas</small>
-                    <span className="fw-bold">Backend, APIs, React / React Native</span>
+                    <small className="text-muted d-block text-uppercase fw-bold">{t.about.focusLabel}</small>
+                    <span className="fw-bold">{t.about.focusVal}</span>
                   </div>
                 </div>
 
                 <div className="col-sm-6">
                   <div className="p-3 bg-subtle rounded-3 h-100">
-                    <small className="text-muted d-block text-uppercase fw-bold">Location</small>
-                    <span className="fw-bold">Istanbul, Turkiye</span>
-                    <small className="text-muted d-block">Open to remote & hybrid</small>
+                    <small className="text-muted d-block text-uppercase fw-bold">{t.about.locationLabel}</small>
+                    <span className="fw-bold">{t.about.locationVal}</span>
+                    <small className="text-muted d-block">{t.about.locationSub}</small>
                   </div>
                 </div>
 
                 <div className="col-sm-6">
                   <div className="p-3 bg-subtle rounded-3 h-100">
-                    <small className="text-muted d-block text-uppercase fw-bold">Status</small>
+                    <small className="text-muted d-block text-uppercase fw-bold">{t.about.statusLabel}</small>
                     <span className="badge bg-success-subtle text-success border border-success border-opacity-25 px-2 py-1">
-                      Ready for Opportunities
+                      {t.about.statusVal}
                     </span>
                   </div>
                 </div>
@@ -114,7 +111,7 @@ export default function AboutPage() {
 
               <div className="mt-4 pt-3 border-top">
                 <div className="d-flex justify-content-between align-items-center text-muted small">
-                  <span>Quick Contact:</span>
+                  <span>{t.about.quickContact}</span>
                   <a href="mailto:halajabban07@gmail.com" className="text-teal fw-bold text-decoration-none">
                     halajabban07@gmail.com
                   </a>
@@ -127,9 +124,9 @@ export default function AboutPage() {
         {/* Spoken Languages Section */}
         <div className="languages-section my-5 py-4 border-top">
           <div className="text-center max-w-600 mx-auto mb-4">
-            <span className="badge category-badge mb-2">COMMUNICATION</span>
-            <h2 className="fw-bold">Spoken & Written Languages</h2>
-            <p className="text-muted">Effective communication across multicultural engineering teams.</p>
+            <span className="badge category-badge mb-2">{t.about.langBadge}</span>
+            <h2 className="fw-bold">{t.about.langTitle}</h2>
+            <p className="text-muted">{t.about.langDesc}</p>
           </div>
 
           <div className="row g-4 justify-content-center">
@@ -160,9 +157,9 @@ export default function AboutPage() {
         {/* Engineering Values */}
         <div className="values-section my-5 py-4 border-top">
           <div className="text-center max-w-600 mx-auto mb-5">
-            <span className="badge category-badge mb-2">PHILOSOPHY</span>
-            <h2 className="fw-bold">Core Engineering Principles</h2>
-            <p className="text-muted">How I approach codebases, systems design, and collaboration.</p>
+            <span className="badge category-badge mb-2">{t.about.valuesBadge}</span>
+            <h2 className="fw-bold">{t.about.valuesTitle}</h2>
+            <p className="text-muted">{t.about.valuesDesc}</p>
           </div>
 
           <div className="row g-4">

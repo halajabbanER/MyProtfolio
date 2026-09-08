@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
+import { useLanguage } from '../contexts/LanguageContext'
 
 export default function ProjectModal({ project, onClose }) {
+  const { t } = useLanguage()
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose()
@@ -27,7 +29,7 @@ export default function ProjectModal({ project, onClose }) {
           type="button"
           className="btn-close-custom position-absolute top-0 end-0 m-3 z-3"
           onClick={onClose}
-          aria-label="Close project details"
+          aria-label={t.projects.modalTech}
         >
           <i className="bi bi-x-lg"></i>
         </button>
@@ -55,7 +57,7 @@ export default function ProjectModal({ project, onClose }) {
             </p>
 
             <div className="mb-4">
-              <h6 className="fw-bold small text-uppercase text-muted mb-2">Technologies Used</h6>
+              <h6 className="fw-bold small text-uppercase text-muted mb-2">{t.projects.modalTech}</h6>
               <div className="d-flex flex-wrap gap-2">
                 {project.technologies?.map((tech) => (
                   <span key={tech} className="badge tech-tag px-2 py-1">
@@ -75,7 +77,7 @@ export default function ProjectModal({ project, onClose }) {
                   rel="noreferrer"
                 >
                   <i className="bi bi-github"></i>
-                  <span>View Code Repository</span>
+                  <span>{t.projects.modalRepo}</span>
                 </a>
               )}
               {project.demo && project.demo !== '#' && (
@@ -86,7 +88,7 @@ export default function ProjectModal({ project, onClose }) {
                   rel="noreferrer"
                 >
                   <i className="bi bi-box-arrow-up-right"></i>
-                  <span>Launch Live Demo</span>
+                  <span>{t.projects.modalDemo}</span>
                 </a>
               )}
             </div>

@@ -1,10 +1,12 @@
 import { useState, useEffect, useMemo } from 'react'
 import ProjectCard from '../components/ProjectCard'
 import ProjectModal from '../components/ProjectModal'
+import { useLanguage } from '../contexts/LanguageContext'
 
 const categories = ['All', 'Web', 'Mobile', 'Hardware', 'Desktop']
 
 export default function ProjectsPage() {
+  const { t } = useLanguage()
   const [projects, setProjects] = useState([])
   const [loading, setLoading] = useState(true)
   const [query, setQuery] = useState('')
@@ -48,10 +50,10 @@ export default function ProjectsPage() {
       <div className="container">
         {/* Header */}
         <div className="text-center max-w-700 mx-auto mb-5">
-          <span className="badge category-badge mb-2">SELECTED WORK</span>
-          <h1 className="fw-black display-5 mb-3">Featured Projects & Architecture</h1>
+          <span className="badge category-badge mb-2">{t.projects.badge}</span>
+          <h1 className="fw-black display-5 mb-3">{t.projects.title}</h1>
           <p className="lead text-muted">
-            Explore a collection of software applications spanning responsive web platforms, cross-platform mobile apps, desktop systems, and processor design.
+            {t.projects.lead}
           </p>
         </div>
 
@@ -67,17 +69,17 @@ export default function ProjectsPage() {
                 <input
                   type="text"
                   className="form-control border-start-0 ps-0"
-                  placeholder="Search by title, technology, or tag..."
+                  placeholder={t.projects.searchPlaceholder}
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  aria-label="Search projects"
+                  aria-label={t.projects.searchPlaceholder}
                 />
                 {query && (
                   <button
                     className="btn btn-outline-secondary border-start-0"
                     type="button"
                     onClick={() => setQuery('')}
-                    title="Clear search"
+                    title={t.projects.resetFilters}
                   >
                     <i className="bi bi-x-circle"></i>
                   </button>
@@ -95,7 +97,7 @@ export default function ProjectsPage() {
                     className={`btn btn-sm filter-pill ${category === cat ? 'active' : ''}`}
                     onClick={() => setCategory(cat)}
                   >
-                    <span>{cat}</span>
+                    <span>{({ All: t.projects.catAll, Web: t.projects.catWeb, Mobile: t.projects.catMobile, Hardware: t.projects.catHardware, Desktop: t.projects.catDesktop })[cat]}</span>
                     <span className="badge count-badge ms-1">
                       {categoryCounts[cat] ?? 0}
                     </span>
@@ -107,7 +109,7 @@ export default function ProjectsPage() {
 
           <div className="d-flex justify-content-between align-items-center mt-3 pt-3 border-top small text-muted">
             <span>
-              Showing <strong>{filteredProjects.length}</strong> of <strong>{projects.length}</strong> projects
+              {t.projects.showing} <strong>{filteredProjects.length}</strong> {t.projects.of} <strong>{projects.length}</strong> {t.projects.projectsCount}
             </span>
             {(query || category !== 'All') && (
               <button
@@ -118,7 +120,7 @@ export default function ProjectsPage() {
                 }}
               >
                 <i className="bi bi-arrow-counterclockwise me-1"></i>
-                Reset filters
+                {t.projects.resetFilters}
               </button>
             )}
           </div>
@@ -128,9 +130,9 @@ export default function ProjectsPage() {
         {loading && (
           <div className="text-center py-5">
             <div className="spinner-border text-teal" role="status">
-              <span className="visually-hidden">Loading projects...</span>
+              <span className="visually-hidden">{t.projects.loading}</span>
             </div>
-            <p className="text-muted mt-3">Loading projects portfolio...</p>
+            <p className="text-muted mt-3">{t.projects.loading}</p>
           </div>
         )}
 
@@ -138,9 +140,9 @@ export default function ProjectsPage() {
         {!loading && filteredProjects.length === 0 && (
           <div className="text-center py-5 my-4 card border-0 shadow-sm p-5 rounded-4">
             <i className="bi bi-folder2-open display-1 text-muted opacity-50 mb-3"></i>
-            <h3 className="h4 fw-bold">No Projects Found</h3>
+            <h3 className="h4 fw-bold">{t.projects.noProjectsTitle}</h3>
             <p className="text-muted max-w-500 mx-auto mb-4">
-              We couldn't find any projects matching your search query "{query}" in category "{category}".
+              {t.projects.noProjectsDesc}
             </p>
             <div>
               <button
@@ -150,7 +152,7 @@ export default function ProjectsPage() {
                   setQuery('')
                 }}
               >
-                View All Projects
+                {t.projects.viewAll}
               </button>
             </div>
           </div>
