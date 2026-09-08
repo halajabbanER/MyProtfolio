@@ -15,7 +15,7 @@ export const translations = {
       badge: 'Computer Engineering • Web Developer • Istanbul',
       titleP1: 'I build web applications that are ',
       titleHighlight1: 'fast, responsive,',
-      titleP2: ' and ',
+      titleP2: ' and ',npm run build
       titleHighlight2: 'scalable.',
       lead: "Hi, I'm Hala Jabban. A Computer Engineering student & Full-Stack Web Developer specializing in building modern React web interfaces, robust backend REST APIs, and database-driven digital solutions.",
       viewProjects: 'View Projects',
