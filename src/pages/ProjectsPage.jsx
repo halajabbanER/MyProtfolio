@@ -160,9 +160,9 @@ export default function ProjectsPage() {
 
         {/* Projects Grid */}
         <div className="row g-4">
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project, index) => (
             <div className="col-lg-4 col-md-6" key={project.id}>
-              <ProjectCard project={project} onDetails={setSelectedProject} />
+              <ProjectCard project={project} index={index} onDetails={setSelectedProject} />
             </div>
           ))}
         </div>

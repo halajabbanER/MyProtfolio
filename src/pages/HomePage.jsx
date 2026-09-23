@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import TypingCodeCard from '../components/TypingCodeCard'
+import TechTicker from '../components/TechTicker'
 import { useLanguage } from '../contexts/LanguageContext'
 
 export default function HomePage() {
@@ -67,6 +68,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Modern Tech Stack Infinite Marquee */}
+      <TechTicker />
 
       {/* Quick Stats Grid */}
       <section className="stats-section py-4 border-top border-bottom">

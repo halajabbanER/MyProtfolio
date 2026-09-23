@@ -57,6 +57,25 @@ export const translations = {
       title: 'Architecting Systems from Code to Database',
       lead: 'Driven by curiosity, structured thinking, and a commitment to writing clean, reliable software.',
       whoTitle: 'Who I Am & What Drives Me',
+      qaTag: '[ 0 0 1 ]',
+      qaList: [
+        {
+          q: 'Who is Hala Jabban and what is your core specialty?',
+          a: 'I am a Computer Engineering student at Fatih Sultan Mehmet Vakif University in Istanbul and a dedicated Full-Stack Web Developer. I build high-performance web platforms with clean architectures, responsive designs, and robust backends.',
+        },
+        {
+          q: 'What is your real-world industry experience?',
+          a: 'In 2025, I completed an internship at Pal4it as a Junior Backend / Software Engineer designing RESTful APIs and relational databases. In 2026, I contributed to Yukatech as a React & Web Developer, delivering modern, responsive web experiences.',
+        },
+        {
+          q: 'What technologies and frameworks do you master?',
+          a: 'My stack includes React, modern JavaScript, TypeScript, Bootstrap, and HTML5/CSS3 on the frontend, paired with C#, ASP.NET Core, SQL Server, Entity Framework Core, and REST APIs on the backend.',
+        },
+        {
+          q: 'What is your engineering philosophy and passion?',
+          a: 'I view software engineering as a disciplined art of problem-solving. From simulating 16-bit processor architectures to deploying full-stack web platforms, my passion is creating clean, maintainable code that scales seamlessly.',
+        },
+      ],
       p1: 'I am a Computer Engineering student at Fatih Sultan Mehmet Vakif University in Istanbul, Turkiye. My passion and primary specialization is Full-Stack Web Development, crafting high-performance web platforms, intuitive frontends, and reliable backend architectures.',
       p2: 'In 2025, during my internship as a Junior Backend / Software Engineer at Pal4it, I designed and optimized RESTful APIs and database schemas. In 2026, at Yukatech, I contributed as a React & Web Developer, developing dynamic, responsive web interfaces and modern user experiences.',
       p3: 'Whether developing comprehensive web applications with React, ASP.NET Core, and SQL Server, or exploring modern web technologies, I treat software engineering as an art of disciplined problem-solving and clean architecture.',
@@ -258,6 +277,25 @@ export const translations = {
       title: 'بناء وهندسة الأنظمة من الشيفرة إلى قاعدة البيانات',
       lead: 'مدفوعة بالشغف، والتفكير المنطقي المنظم، والالتزام بكتابة كود نظيف وموثوق.',
       whoTitle: 'من أنا وما الذي يدفعني للإبداع',
+      qaTag: '[ 0 0 1 ]',
+      qaList: [
+        {
+          q: 'من هي حلا جبان وما هو مجالكِ وتخصصكِ الأساسي؟',
+          a: 'أنا طالبة في قسم هندسة الحاسوب بجامعة السلطان محمد الفاتح الوقفية (FSMVU) بإسطنبول، ومطورة ويب Full-Stack شغوفة ببناء منصات ويب متكاملة، فائقة السرعة وعالية الاعتمادية من الواجهة إلى قاعدة البيانات.',
+        },
+        {
+          q: 'ما هي خبراتكِ العملية والشركات التي عملتِ معها؟',
+          a: 'في عام 2025، تدربت كـ Junior Backend / Software Engineer في شركة Pal4it حيث صممت الـ APIs وقواعد البيانات العلائقية. وفي عام 2026، ساهمت مع شركة Yukatech كـ React & Web Developer لبناء واجهات وتجارب ويب حديثة ومتجاوبة.',
+        },
+        {
+          q: 'ما هي التقنيات الأساسية التي تبنين بها الأنظمة؟',
+          a: 'أتقن React، و JavaScript الحديث، و TypeScript، و Bootstrap في الواجهات الأمامية، إلى جانب C#، و ASP.NET Core، و SQL Server، و EF Core، و RESTful APIs في الأنظمة الخلفية.',
+        },
+        {
+          q: 'ما هو شغفكِ وفلسفتكِ في هندسة البرمجيات؟',
+          a: 'أتعامل مع هندسة البرمجيات كفن لحل المشكلات المعقدة بأناقة ونظام، مع التركيز التام على كتابة كود نظيف، ومعمارية قابلة للتوسع، وتجربة مستخدم متميزة وسريعة.',
+        },
+      ],
       p1: 'أنا المهندسة هلا جبان في قسم هندسة الحاسوب بجامعة السلطان محمد الفاتح الوقفية (FSMVU) في إسطنبول، تركيا. شغفي وتخصصي الأساسي هو تطوير الويب المتكامل (Full-Stack Web Development)، وتصميم واجهات أمامية تفاعلية وسريعة مع بنى تحتية خلفية موثوقة.',
       p2: 'في عام 2025، وخلال تدريبي كـ Junior Backend / Software Engineer في شركة Pal4it، ركزت على تصميم الـ APIs وتحسين قواعد البيانات. وفي عام 2026، في شركة Yukatech، ساهمت كـ React & Web Developer في بناء واجهات وتجارب ويب ديناميكية وسريعة.',
       p3: 'سواء كنت أطور تطبيقات ويب شاملة باستخدام React و ASP.NET Core و SQL Server، أو استكشف تقنيات معمارية جديدة، أتعامل مع هندسة البرمجيات كفن لحل المشكلات المعقدة بأناقة ونظام.',
@@ -459,6 +497,25 @@ export const translations = {
       title: 'Koddan Veritabanına Güvenilir Sistemler İnşa Etmek',
       lead: 'Merak, yapısal düşünme ve temiz, güvenilir kod yazma tutkusuyla çalışıyorum.',
       whoTitle: 'Ben Kimim & Beni Ne Motive Eder?',
+      qaTag: '[ 0 0 1 ]',
+      qaList: [
+        {
+          q: 'Hala Jabban kimdir ve ana uzmanlık alanı nedir?',
+          a: 'Fatih Sultan Mehmet Vakıf Üniversitesi Bilgisayar Mühendisliği öğrencisiyim. Ana uzmanlık alanım ve tutkum Full-Stack Web Geliştirme; yüksek performanslı web platformları ve güvenilir mimariler inşa etmektir.',
+        },
+        {
+          q: 'Sektör deneyiminiz ve yer aldığınız projeler nelerdir?',
+          a: "2025 yılında Pal4it bünyesinde Junior Backend / Software Engineer Stajyeri olarak RESTful API'ler ve veritabanı şemaları geliştirdim. 2026'da Yukatech bünyesinde React & Web Geliştirici olarak modern web arayüzleri ürettim.",
+        },
+        {
+          q: 'En çok hangi teknolojiler ve araçlarda yetkinsiniz?',
+          a: 'Ön yüzde React, modern JavaScript, TypeScript ve Bootstrap; arka yüzde ise C#, ASP.NET Core, SQL Server ve RESTful API mimarileri üzerinde yetkinim.',
+        },
+        {
+          q: 'Yazılım mühendisliği vizyonunuz ve motivasyonunuz nedir?',
+          a: 'Yazılım geliştirmeyi disiplinli bir problem çözme sanatı olarak görüyorum. Amacım temiz, sürdürülebilir ve ölçeklenebilir kod yazarak gerçek dünya çözümleri üretmektir.',
+        },
+      ],
       p1: "Fatih Sultan Mehmet Vakıf Üniversitesi'nde Bilgisayar Mühendisliği öğrencisiyim. Ana odak alanım ve tutkum Full-Stack Web Geliştirme; yüksek performanslı web platformları, sezgisel ön yüzler ve güvenilir arka uç mimarileri oluşturmaktır.",
       p2: "2025 yılında Pal4it'te Junior Backend / Software Engineer Stajyeri olarak RESTful API'ler tasarlayıp veritabanı şemalarını optimize ettim. 2026'da Yukatech bünyesinde React & Web Geliştirici olarak modern ve dinamik web arayüzleri geliştirdim.",
       p3: "İster React, ASP.NET Core ve SQL Server ile kapsamlı web uygulamaları geliştireyim, ister yeni teknolojileri keşfedeyim; yazılım mühendisliğini disiplinli bir problem çözme sanatı olarak görüyorum.",

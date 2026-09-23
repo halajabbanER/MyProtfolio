@@ -1,9 +1,27 @@
 import { useLanguage } from '../contexts/LanguageContext'
 
-export default function ProjectCard({ project, onDetails }) {
+export default function ProjectCard({ project, index = 0, onDetails }) {
   const { t } = useLanguage()
+  const formattedIndex = String(index + 1).padStart(2, '0')
+
+  const getCategoryIcon = (category) => {
+    switch (category?.toLowerCase()) {
+      case 'web':
+        return 'bi-globe2'
+      case 'mobile':
+        return 'bi-phone'
+      case 'hardware':
+        return 'bi-cpu'
+      case 'desktop':
+        return 'bi-window-desktop'
+      default:
+        return 'bi-code-slash'
+    }
+  }
+
   return (
-    <article className="card project-card h-100 shadow-sm border-0">
+    <article className="card project-card h-100 shadow-sm border-0 position-relative overflow-hidden">
+      {/* Top Preview Image & Badges */}
       <div className="project-preview-wrapper position-relative overflow-hidden">
         <button
           type="button"
@@ -23,13 +41,27 @@ export default function ProjectCard({ project, onDetails }) {
             </span>
           </div>
         </button>
-        <span className="badge category-badge position-absolute top-0 start-0 m-3 shadow-sm">
-          {project.category}
+
+        {/* Category Pill with Icon */}
+        <span className="badge category-badge position-absolute top-0 start-0 m-3 shadow-sm d-flex align-items-center gap-1">
+          <i className={`bi ${getCategoryIcon(project.category)}`}></i>
+          <span>{project.category}</span>
+        </span>
+
+        {/* High-Tech Index Tag */}
+        <span className="project-index-badge position-absolute top-0 end-0 m-3 font-monospace fw-bold">
+          #{formattedIndex}
         </span>
       </div>
 
-      <div className="card-body d-flex flex-column p-4">
-        <div className="tags-container mb-3 d-flex flex-wrap gap-1">
+      {/* Card Body */}
+      <div className="card-body d-flex flex-column p-4 position-relative">
+        {/* Subtle Luxury Number Watermark */}
+        <div className="project-watermark-num font-monospace" aria-hidden="true">
+          {formattedIndex}
+        </div>
+
+        <div className="tags-container mb-3 d-flex flex-wrap gap-1 position-relative z-1">
           {project.tags.map((tag) => (
             <span key={tag} className="badge tech-tag">
               {tag}
@@ -37,12 +69,13 @@ export default function ProjectCard({ project, onDetails }) {
           ))}
         </div>
 
-        <h3 className="card-title h5 fw-bold mb-2">{project.title}</h3>
-        <p className="card-text text-muted small flex-grow-1 mb-4">
+        <h3 className="card-title h5 fw-bold mb-2 position-relative z-1">{project.title}</h3>
+        <p className="card-text text-muted small flex-grow-1 mb-4 position-relative z-1">
           {project.description}
         </p>
 
-        <div className="project-buttons mt-auto pt-2 border-top d-flex flex-wrap gap-2">
+        {/* Action Buttons */}
+        <div className="project-buttons mt-auto pt-3 border-top d-flex flex-wrap gap-2 position-relative z-1">
           {project.github && (
             <a
               className="btn btn-sm btn-outline-custom d-inline-flex align-items-center gap-1 flex-fill justify-content-center"

@@ -27,6 +27,36 @@ export default function Navbar({ theme, onToggleTheme }) {
           </Link>
 
           <div className="d-flex align-items-center gap-2 order-lg-3">
+            {/* 3-Language Segmented Switcher */}
+            <div className="lang-switcher-pill d-inline-flex align-items-center p-1 rounded-pill" role="group" aria-label={t.nav.langTitle}>
+              <i className="bi bi-translate text-teal ms-1 me-1 d-none d-sm-inline"></i>
+              <button
+                type="button"
+                className={`btn btn-sm lang-pill-btn ${language === 'en' ? 'active' : ''}`}
+                onClick={() => setLanguage('en')}
+                aria-label="English"
+              >
+                EN
+              </button>
+              <button
+                type="button"
+                className={`btn btn-sm lang-pill-btn ${language === 'ar' ? 'active' : ''}`}
+                onClick={() => setLanguage('ar')}
+                aria-label="العربية"
+              >
+                العربية
+              </button>
+              <button
+                type="button"
+                className={`btn btn-sm lang-pill-btn ${language === 'tr' ? 'active' : ''}`}
+                onClick={() => setLanguage('tr')}
+                aria-label="Türkçe"
+              >
+                TR
+              </button>
+            </div>
+
+            {/* Dark / Light Theme Toggle */}
             <button
               className="theme-toggle-btn btn btn-sm d-flex align-items-center gap-1"
               onClick={onToggleTheme}
@@ -34,19 +64,10 @@ export default function Navbar({ theme, onToggleTheme }) {
               title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               <i className={`bi ${theme === 'dark' ? 'bi-sun-fill text-warning' : 'bi-moon-stars-fill text-primary'}`}></i>
-              <span className="theme-toggle-text">{theme === 'dark' ? t.nav.themeLight : t.nav.themeDark}</span>
+              <span className="theme-toggle-text d-none d-md-inline">{theme === 'dark' ? t.nav.themeLight : t.nav.themeDark}</span>
             </button>
 
-            <button
-              className="language-toggle-btn btn btn-sm d-flex align-items-center gap-1"
-              onClick={() => setLanguage(language === 'en' ? 'ar' : language === 'ar' ? 'tr' : 'en')}
-              aria-label={t.nav.langTitle}
-              title={t.nav.langTitle}
-            >
-              <i className="bi bi-translate"></i>
-              <span>{language.toUpperCase()}</span>
-            </button>
-
+            {/* Mobile Nav Toggler */}
             <button
               className="navbar-toggler custom-toggler"
               type="button"
