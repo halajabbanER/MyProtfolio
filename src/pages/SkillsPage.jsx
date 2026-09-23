@@ -179,7 +179,7 @@ export default function SkillsPage() {
           <div className="row g-3">
             {filteredToolkit.map((item) => (
               <div className="col-6 col-md-4 col-lg-3" key={item.name}>
-                <div className="card h-100 p-3 border-0 shadow-sm transition-card d-flex flex-row align-items-center gap-3">
+                <div className="card toolkit-card h-100 p-3 border-0 shadow-sm transition-card d-flex flex-row align-items-center gap-3" style={{ '--tool-color': item.color }}>
                   <div className="toolkit-icon-box toolkit-icon-animated" style={{ '--tool-color': item.color }}>
                     <ToolkitIcon item={item} />
                   </div>
