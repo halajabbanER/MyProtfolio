@@ -5,6 +5,7 @@ import { useLanguage } from '../contexts/LanguageContext'
 export default function AboutPage() {
   const { t } = useLanguage()
   const [openQuestion, setOpenQuestion] = useState(null)
+  const [activeLanguage, setActiveLanguage] = useState(null)
   const languages = t.about.languages
 
   const values = [
@@ -48,7 +49,6 @@ export default function AboutPage() {
             {/* Left Column: Interactive Q&A */}
             <div className="col-lg-7">
               <div className="d-flex align-items-center gap-2 mb-2">
-                <span className="font-monospace text-teal fw-bold small">{t.about.qaTag || '[ 0 0 1 ]'}</span>
                 <span className="badge category-badge">{t.about.badge}</span>
               </div>
               <h2 className="h3 fw-black mb-4">{t.about.whoTitle}</h2>
@@ -166,7 +166,12 @@ export default function AboutPage() {
           <div className="row g-4 justify-content-center">
             {languages.map((lang) => (
               <div className="col-md-4" key={lang.name}>
-                <div className="card h-100 p-4 border-0 shadow-sm transition-card">
+                <button
+                  type="button"
+                  className={`language-card card h-100 w-100 text-start p-4 border-0 shadow-sm transition-card ${activeLanguage === lang.name ? 'is-active' : ''}`}
+                  onClick={() => setActiveLanguage(activeLanguage === lang.name ? null : lang.name)}
+                  aria-pressed={activeLanguage === lang.name}
+                >
                   <div className="d-flex justify-content-between align-items-center mb-2">
                     <h3 className="h5 fw-bold mb-0">{lang.name}</h3>
                     <span className="badge bg-teal-subtle text-teal">{lang.level}</span>
@@ -174,7 +179,7 @@ export default function AboutPage() {
                   <p className="text-muted small flex-grow-1 mb-3">{lang.desc}</p>
                   <div className="progress" style={{ height: '6px' }}>
                     <div
-                      className="progress-bar bg-teal"
+                      className="progress-bar bg-teal language-progress"
                       role="progressbar"
                       style={{ width: `${lang.proficiency}%` }}
                       aria-valuenow={lang.proficiency}
@@ -182,7 +187,7 @@ export default function AboutPage() {
                       aria-valuemax="100"
                     ></div>
                   </div>
-                </div>
+                </button>
               </div>
             ))}
           </div>
@@ -199,7 +204,7 @@ export default function AboutPage() {
           <div className="row g-4">
             {values.map((val) => (
               <div className="col-md-6 col-lg-3" key={val.title}>
-                <div className="card h-100 p-4 border-0 shadow-sm transition-card">
+                <div className="card value-card h-100 p-4 border-0 shadow-sm transition-card">
                   <div className="icon-circle icon-teal mb-3">
                     <i className={`bi ${val.icon} fs-4`}></i>
                   </div>

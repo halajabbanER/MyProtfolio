@@ -50,23 +50,40 @@ const skillCategories = [
 ]
 
 const toolkit = [
-  { name: 'React', category: 'Frontend', icon: 'bi-code-square', color: '#61dafb' },
-  { name: 'React Native', category: 'Mobile', icon: 'bi-phone', color: '#61dafb' },
-  { name: 'C#', category: 'Backend', icon: 'bi-braces', color: '#9b4f96' },
-  { name: 'ASP.NET Core', category: 'Backend', icon: 'bi-server', color: '#512bd4' },
-  { name: 'SQL Server', category: 'Database', icon: 'bi-database', color: '#cc2927' },
-  { name: 'JavaScript', category: 'Frontend', icon: 'bi-filetype-js', color: '#f7df1e' },
-  { name: 'TypeScript', category: 'Mobile/Web', icon: 'bi-filetype-tsx', color: '#3178c6' },
-  { name: 'Java', category: 'Backend', icon: 'bi-cup-hot', color: '#ed8b00' },
-  { name: 'Python', category: 'Languages', icon: 'bi-terminal', color: '#3776ab' },
-  { name: 'HTML5', category: 'Frontend', icon: 'bi-filetype-html', color: '#e34f26' },
-  { name: 'CSS3', category: 'Frontend', icon: 'bi-filetype-css', color: '#1572b6' },
-  { name: 'Bootstrap 5', category: 'UI Framework', icon: 'bi-bootstrap', color: '#7952b3' },
-  { name: 'Git', category: 'Tools', icon: 'bi-git', color: '#f05032' },
-  { name: 'GitHub', category: 'Tools', icon: 'bi-github', color: '#24292f' },
-  { name: 'EF Core', category: 'Database', icon: 'bi-layers', color: '#68217a' },
-  { name: 'Logisim', category: 'Hardware', icon: 'bi-cpu', color: '#0f766e' },
+  { name: 'React', category: 'Frontend', desc: 'Builds reusable interactive interfaces.', icon: 'bi-code-square', color: '#61dafb' },
+  { name: 'React Native', category: 'Mobile', desc: 'Creates cross-platform mobile apps.', icon: 'bi-phone', color: '#61dafb' },
+  { name: 'C#', category: 'Backend', desc: 'Develops structured object-oriented systems.', icon: 'bi-braces', color: '#9b4f96' },
+  { name: 'ASP.NET Core', category: 'Backend', desc: 'Builds secure web apps and REST APIs.', icon: 'bi-server', color: '#512bd4' },
+  { name: 'SQL Server', category: 'Database', desc: 'Stores and queries relational data.', icon: 'bi-database', color: '#cc2927' },
+  { name: 'JavaScript', category: 'Frontend', desc: 'Adds logic and interaction to the web.', icon: 'bi-filetype-js', color: '#f7df1e' },
+  { name: 'TypeScript', category: 'Mobile/Web', desc: 'Adds reliable types to JavaScript projects.', icon: 'bi-filetype-tsx', color: '#3178c6' },
+  { name: 'Java', category: 'Backend', desc: 'Supports portable object-oriented applications.', icon: 'bi-cup-hot', color: '#ed8b00' },
+  { name: 'Python', category: 'Languages', desc: 'Solves problems through scripting and automation.', icon: 'bi-terminal', color: '#3776ab' },
+  { name: 'HTML5', category: 'Frontend', desc: 'Structures accessible web pages.', icon: 'bi-filetype-html', color: '#e34f26' },
+  { name: 'CSS3', category: 'Frontend', desc: 'Styles responsive and polished layouts.', icon: 'bi-filetype-css', color: '#1572b6' },
+  { name: 'Bootstrap 5', category: 'UI Framework', desc: 'Speeds up responsive interface design.', icon: 'bi-bootstrap', color: '#7952b3' },
+  { name: 'Git', category: 'Tools', desc: 'Tracks code changes and collaboration.', icon: 'bi-git', color: '#f05032' },
+  { name: 'GitHub', category: 'Tools', desc: 'Hosts repositories and team workflows.', icon: 'bi-github', color: '#24292f' },
+  { name: 'EF Core', category: 'Database', desc: 'Connects .NET applications to databases.', icon: 'bi-layers', color: '#68217a' },
+  { name: 'Logisim', category: 'Hardware', desc: 'Simulates digital circuits and CPU logic.', icon: 'bi-cpu', color: '#0f766e' },
 ]
+
+function ToolkitIcon({ item }) {
+  if (item.name === 'React' || item.name === 'React Native') {
+    return (
+      <svg className="react-brand-icon" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="3" fill="currentColor" />
+        <g fill="none" stroke="currentColor" strokeWidth="1.7">
+          <ellipse cx="16" cy="16" rx="14" ry="5.5" />
+          <ellipse cx="16" cy="16" rx="14" ry="5.5" transform="rotate(60 16 16)" />
+          <ellipse cx="16" cy="16" rx="14" ry="5.5" transform="rotate(120 16 16)" />
+        </g>
+      </svg>
+    )
+  }
+
+  return <i className={`bi ${item.icon} fs-4`} aria-hidden="true"></i>
+}
 
 export default function SkillsPage() {
   const { t } = useLanguage()
@@ -164,11 +181,12 @@ export default function SkillsPage() {
               <div className="col-6 col-md-4 col-lg-3" key={item.name}>
                 <div className="card h-100 p-3 border-0 shadow-sm transition-card d-flex flex-row align-items-center gap-3">
                   <div className="toolkit-icon-box toolkit-icon-animated" style={{ '--tool-color': item.color }}>
-                    <i className={`bi ${item.icon} fs-4`}></i>
+                    <ToolkitIcon item={item} />
                   </div>
-                  <div>
+                  <div className="toolkit-copy">
                     <div className="fw-bold">{item.name}</div>
                     <small className="text-muted">{item.category}</small>
+                    <p className="toolkit-description text-muted mb-0">{item.desc}</p>
                   </div>
                 </div>
               </div>

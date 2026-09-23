@@ -14,14 +14,17 @@ export default function TechTicker() {
     { label: 'Full-Stack Web', color: '#06b6d4' },
   ]
 
+  // Keep each loop wider than the viewport so the marquee never exposes a blank gap.
+  const loopItems = [...items, ...items]
+
   return (
     <div className="tech-ticker-wrapper py-3 overflow-hidden border-top border-bottom">
       <div className="tech-ticker-track d-flex align-items-center">
         {[0, 1].map((groupIndex) => (
           <div className="tech-ticker-group d-flex align-items-center gap-4 flex-shrink-0" key={groupIndex}>
-            {items.map((item) => (
+            {loopItems.map((item, itemIndex) => (
               <div
-                key={`${groupIndex}-${item.label}`}
+                key={`${groupIndex}-${item.label}-${itemIndex}`}
                 className="tech-ticker-item d-flex align-items-center gap-2 flex-shrink-0"
                 style={{ '--ticker-color': item.color }}
               >
