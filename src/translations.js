@@ -75,6 +75,10 @@ export const translations = {
           q: 'What is your engineering philosophy and passion?',
           a: 'I view software engineering as a disciplined art of problem-solving. From simulating 16-bit processor architectures to deploying full-stack web platforms, my passion is creating clean, maintainable code that scales seamlessly.',
         },
+        {
+          q: 'How can someone get in touch with me?',
+          a: 'You can contact me through the form on the Contact page, by email at halajabban07@gmail.com, by phone at +90 551 176 0010, or directly through WhatsApp.',
+        },
       ],
       p1: 'I am a Computer Engineering student at Fatih Sultan Mehmet Vakif University in Istanbul, Turkiye. My passion and primary specialization is Full-Stack Web Development, crafting high-performance web platforms, intuitive frontends, and reliable backend architectures.',
       p2: 'In 2025, during my internship as a Junior Backend / Software Engineer at Pal4it, I designed and optimized RESTful APIs and database schemas. In 2026, at Yukatech, I contributed as a React & Web Developer, developing dynamic, responsive web interfaces and modern user experiences.',
@@ -295,6 +299,10 @@ export const translations = {
           q: 'ما هو شغفكِ وفلسفتكِ في هندسة البرمجيات؟',
           a: 'أتعامل مع هندسة البرمجيات كفن لحل المشكلات المعقدة بأناقة ونظام، مع التركيز التام على كتابة كود نظيف، ومعمارية قابلة للتوسع، وتجربة مستخدم متميزة وسريعة.',
         },
+        {
+          q: 'كيف يمكن التواصل معي؟',
+          a: 'يمكنك التواصل معي عبر نموذج التواصل في صفحة «تواصل معي»، أو عبر البريد الإلكتروني halajabban07@gmail.com، أو الهاتف +90 551 176 0010، أو مباشرة عبر واتساب.',
+        },
       ],
       p1: 'أنا المهندسة هلا جبان في قسم هندسة الحاسوب بجامعة السلطان محمد الفاتح الوقفية (FSMVU) في إسطنبول، تركيا. شغفي وتخصصي الأساسي هو تطوير الويب المتكامل (Full-Stack Web Development)، وتصميم واجهات أمامية تفاعلية وسريعة مع بنى تحتية خلفية موثوقة.',
       p2: 'في عام 2025، وخلال تدريبي كـ Junior Backend / Software Engineer في شركة Pal4it، ركزت على تصميم الـ APIs وتحسين قواعد البيانات. وفي عام 2026، في شركة Yukatech، ساهمت كـ React & Web Developer في بناء واجهات وتجارب ويب ديناميكية وسريعة.',
@@ -514,6 +522,10 @@ export const translations = {
         {
           q: 'Yazılım mühendisliği vizyonunuz ve motivasyonunuz nedir?',
           a: 'Yazılım geliştirmeyi disiplinli bir problem çözme sanatı olarak görüyorum. Amacım temiz, sürdürülebilir ve ölçeklenebilir kod yazarak gerçek dünya çözümleri üretmektir.',
+        },
+        {
+          q: 'Benimle nasıl iletişime geçebilirsiniz?',
+          a: 'İletişim sayfasındaki formu kullanabilir, halajabban07@gmail.com adresine e-posta gönderebilir, +90 551 176 0010 numarasını arayabilir veya WhatsApp üzerinden doğrudan yazabilirsiniz.',
         },
       ],
       p1: "Fatih Sultan Mehmet Vakıf Üniversitesi'nde Bilgisayar Mühendisliği öğrencisiyim. Ana odak alanım ve tutkum Full-Stack Web Geliştirme; yüksek performanslı web platformları, sezgisel ön yüzler ve güvenilir arka uç mimarileri oluşturmaktır.",

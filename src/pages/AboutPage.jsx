@@ -1,9 +1,10 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../contexts/LanguageContext'
-import LanyardBadge from '../components/LanyardBadge'
 
 export default function AboutPage() {
   const { t } = useLanguage()
+  const [openQuestion, setOpenQuestion] = useState(null)
   const languages = t.about.languages
 
   const values = [
@@ -56,16 +57,25 @@ export default function AboutPage() {
               <div className="qa-list d-flex flex-column gap-3">
                 {t.about.qaList &&
                   t.about.qaList.map((item, idx) => (
-                    <article key={idx} className="qa-card p-4 rounded-4 transition-card border">
-                      <div className="d-flex align-items-start gap-3">
-                        <span className="qa-badge-q flex-shrink-0">
-                          Q.{idx + 1}
-                        </span>
-                        <div className="flex-grow-1">
-                          <h3 className="h6 fw-bold mb-2 text-ink">{item.q}</h3>
+                    <article
+                      key={idx}
+                      className={`qa-card rounded-4 transition-card border ${openQuestion === idx ? 'is-open' : ''}`}
+                    >
+                      <button
+                        type="button"
+                        className="qa-question w-100 d-flex align-items-center gap-3 text-start border-0 bg-transparent p-4"
+                        aria-expanded={openQuestion === idx}
+                        onClick={() => setOpenQuestion(openQuestion === idx ? null : idx)}
+                      >
+                        <span className="qa-badge-q flex-shrink-0">Q.{idx + 1}</span>
+                        <span className="h6 fw-bold mb-0 text-ink flex-grow-1">{item.q}</span>
+                        <i className={`bi bi-chevron-down qa-chevron ${openQuestion === idx ? 'is-open' : ''}`}></i>
+                      </button>
+                      {openQuestion === idx && (
+                        <div className="qa-answer px-4 pb-4">
                           <p className="text-muted mb-0 small line-height-relaxed">{item.a}</p>
                         </div>
-                      </div>
+                      )}
                     </article>
                   ))}
               </div>
@@ -90,11 +100,6 @@ export default function AboutPage() {
             {/* Right Column: Hanging Lanyard ID Badge & Engineering Snapshot */}
             <div className="col-lg-5">
               <div className="sticky-lg-top pt-2" style={{ top: '90px' }}>
-                {/* Realistic Lanyard Badge */}
-                <div className="mb-4 d-flex justify-content-center">
-                  <LanyardBadge />
-                </div>
-
                 {/* Snapshot Card */}
                 <div className="about-card p-4 rounded-4 shadow-sm border">
                   <div className="d-flex align-items-center gap-2 mb-3">

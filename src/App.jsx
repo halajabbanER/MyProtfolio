@@ -21,6 +21,7 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const location = useLocation()
   const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem('portfolio-theme')
     if (saved) return saved
@@ -42,7 +43,7 @@ export default function App() {
       <div className="portfolio-app d-flex flex-column min-vh-100">
         <ScrollToTop />
         <Navbar theme={theme} onToggleTheme={toggleTheme} />
-        <main className="flex-grow-1">
+        <main key={location.pathname} className="flex-grow-1 route-shell">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />

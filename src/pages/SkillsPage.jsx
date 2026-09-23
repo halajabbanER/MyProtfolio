@@ -50,22 +50,22 @@ const skillCategories = [
 ]
 
 const toolkit = [
-  { name: 'React', category: 'Frontend', icon: 'bi-code-square' },
-  { name: 'React Native', category: 'Mobile', icon: 'bi-phone' },
-  { name: 'C#', category: 'Backend', icon: 'bi-braces' },
-  { name: 'ASP.NET Core', category: 'Backend', icon: 'bi-server' },
-  { name: 'SQL Server', category: 'Database', icon: 'bi-database' },
-  { name: 'JavaScript', category: 'Frontend', icon: 'bi-filetype-js' },
-  { name: 'TypeScript', category: 'Mobile/Web', icon: 'bi-filetype-tsx' },
-  { name: 'Java', category: 'Backend', icon: 'bi-cup-hot' },
-  { name: 'Python', category: 'Languages', icon: 'bi-terminal' },
-  { name: 'HTML5', category: 'Frontend', icon: 'bi-filetype-html' },
-  { name: 'CSS3', category: 'Frontend', icon: 'bi-filetype-css' },
-  { name: 'Bootstrap 5', category: 'UI Framework', icon: 'bi-bootstrap' },
-  { name: 'Git', category: 'Tools', icon: 'bi-git' },
-  { name: 'GitHub', category: 'Tools', icon: 'bi-github' },
-  { name: 'EF Core', category: 'Database', icon: 'bi-layers' },
-  { name: 'Logisim', category: 'Hardware', icon: 'bi-cpu' },
+  { name: 'React', category: 'Frontend', icon: 'bi-code-square', color: '#61dafb' },
+  { name: 'React Native', category: 'Mobile', icon: 'bi-phone', color: '#61dafb' },
+  { name: 'C#', category: 'Backend', icon: 'bi-braces', color: '#9b4f96' },
+  { name: 'ASP.NET Core', category: 'Backend', icon: 'bi-server', color: '#512bd4' },
+  { name: 'SQL Server', category: 'Database', icon: 'bi-database', color: '#cc2927' },
+  { name: 'JavaScript', category: 'Frontend', icon: 'bi-filetype-js', color: '#f7df1e' },
+  { name: 'TypeScript', category: 'Mobile/Web', icon: 'bi-filetype-tsx', color: '#3178c6' },
+  { name: 'Java', category: 'Backend', icon: 'bi-cup-hot', color: '#ed8b00' },
+  { name: 'Python', category: 'Languages', icon: 'bi-terminal', color: '#3776ab' },
+  { name: 'HTML5', category: 'Frontend', icon: 'bi-filetype-html', color: '#e34f26' },
+  { name: 'CSS3', category: 'Frontend', icon: 'bi-filetype-css', color: '#1572b6' },
+  { name: 'Bootstrap 5', category: 'UI Framework', icon: 'bi-bootstrap', color: '#7952b3' },
+  { name: 'Git', category: 'Tools', icon: 'bi-git', color: '#f05032' },
+  { name: 'GitHub', category: 'Tools', icon: 'bi-github', color: '#24292f' },
+  { name: 'EF Core', category: 'Database', icon: 'bi-layers', color: '#68217a' },
+  { name: 'Logisim', category: 'Hardware', icon: 'bi-cpu', color: '#0f766e' },
 ]
 
 export default function SkillsPage() {
@@ -163,7 +163,7 @@ export default function SkillsPage() {
             {filteredToolkit.map((item) => (
               <div className="col-6 col-md-4 col-lg-3" key={item.name}>
                 <div className="card h-100 p-3 border-0 shadow-sm transition-card d-flex flex-row align-items-center gap-3">
-                  <div className="toolkit-icon-box text-teal">
+                  <div className="toolkit-icon-box toolkit-icon-animated" style={{ '--tool-color': item.color }}>
                     <i className={`bi ${item.icon} fs-4`}></i>
                   </div>
                   <div>

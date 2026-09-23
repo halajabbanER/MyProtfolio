@@ -1,7 +1,41 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import TypingCodeCard from '../components/TypingCodeCard'
 import TechTicker from '../components/TechTicker'
 import { useLanguage } from '../contexts/LanguageContext'
+
+function AnimatedStatValue({ value }) {
+  const parts = value.split(/(\d+)/)
+  const targets = parts.filter((part) => /^\d+$/.test(part)).map(Number)
+  const [numbers, setNumbers] = useState(() => targets.map(() => 0))
+
+  useEffect(() => {
+    const duration = 2200
+    const startTime = performance.now()
+    let animationFrame
+
+    const animate = (currentTime) => {
+      const progress = Math.min((currentTime - startTime) / duration, 1)
+      const easedProgress = 1 - Math.pow(1 - progress, 3)
+      setNumbers(targets.map((target) => Math.round(target * easedProgress)))
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate)
+      }
+    }
+
+    animationFrame = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(animationFrame)
+  }, [value])
+
+  let numberIndex = 0
+  return parts.map((part, index) => {
+    if (!/^\d+$/.test(part)) return part
+    const number = numbers[numberIndex] ?? 0
+    numberIndex += 1
+    return <span key={index}>{number}</span>
+  })
+}
 
 export default function HomePage() {
   const { t } = useLanguage()
@@ -80,8 +114,10 @@ export default function HomePage() {
               <div key={stat.label} className="col-6 col-lg-3">
                 <div className="stat-box p-3 h-100 rounded-3 transition-card">
                   <div className="d-flex align-items-center gap-2 mb-1">
-                    <i className={`bi ${stat.icon} text-teal fs-4`}></i>
-                    <span className="stat-number fw-black">{stat.value}</span>
+                    <i className={`bi ${stat.icon} stat-icon-animated text-teal fs-4`}></i>
+                    <span className="stat-number stat-number-animated fw-black">
+                      <AnimatedStatValue value={stat.value} />
+                    </span>
                   </div>
                   <div className="stat-label fw-bold text-ink">{stat.label}</div>
                   <div className="stat-desc text-muted small">{stat.desc}</div>
