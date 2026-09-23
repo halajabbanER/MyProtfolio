@@ -9,22 +9,44 @@ export default function ProjectsPage() {
   const { t } = useLanguage()
   const [projects, setProjects] = useState([])
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
   const [query, setQuery] = useState('')
   const [category, setCategory] = useState('All')
   const [selectedProject, setSelectedProject] = useState(null)
 
   useEffect(() => {
+    setLoadError(false)
     fetch('/data/projects.json')
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error(`Projects request failed: ${res.status}`)
+        return res.json()
+      })
       .then((data) => {
         setProjects(data)
         setLoading(false)
       })
       .catch((err) => {
         console.error('Failed to load projects:', err)
+        setLoadError(true)
         setLoading(false)
       })
   }, [])
+
+  const retryLoading = () => {
+    setLoading(true)
+    setLoadError(false)
+    fetch('/data/projects.json')
+      .then((res) => {
+        if (!res.ok) throw new Error(`Projects request failed: ${res.status}`)
+        return res.json()
+      })
+      .then((data) => setProjects(data))
+      .catch((err) => {
+        console.error('Failed to reload projects:', err)
+        setLoadError(true)
+      })
+      .finally(() => setLoading(false))
+  }
 
   const filteredProjects = useMemo(() => {
     return projects.filter((item) => {
@@ -136,8 +158,19 @@ export default function ProjectsPage() {
           </div>
         )}
 
+        {!loading && loadError && (
+          <div className="text-center py-5 my-4 card border-0 shadow-sm p-5 rounded-4">
+            <i className="bi bi-cloud-slash display-5 text-danger mb-3"></i>
+            <h3 className="h4 fw-bold">{t.projects.loadErrorTitle}</h3>
+            <p className="text-muted max-w-500 mx-auto mb-4">{t.projects.loadErrorDesc}</p>
+            <button type="button" className="btn btn-teal" onClick={retryLoading}>
+              <i className="bi bi-arrow-clockwise me-2"></i>{t.projects.retry}
+            </button>
+          </div>
+        )}
+
         {/* Empty State */}
-        {!loading && filteredProjects.length === 0 && (
+        {!loading && !loadError && filteredProjects.length === 0 && (
           <div className="text-center py-5 my-4 card border-0 shadow-sm p-5 rounded-4">
             <i className="bi bi-folder2-open display-1 text-muted opacity-50 mb-3"></i>
             <h3 className="h4 fw-bold">{t.projects.noProjectsTitle}</h3>

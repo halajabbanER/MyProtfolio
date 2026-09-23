@@ -1,6 +1,23 @@
 import { useState } from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
 
+async function copyText(value) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(value)
+    return
+  }
+
+  const input = document.createElement('textarea')
+  input.value = value
+  input.setAttribute('readonly', '')
+  input.style.position = 'fixed'
+  input.style.opacity = '0'
+  document.body.appendChild(input)
+  input.select()
+  document.execCommand('copy')
+  input.remove()
+}
+
 export default function ContactPage() {
   const { t } = useLanguage()
   const [formData, setFormData] = useState({
@@ -20,16 +37,24 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText('halajabban07@gmail.com')
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2500)
+  const handleCopyEmail = async () => {
+    try {
+      await copyText('halajabban07@gmail.com')
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2500)
+    } catch {
+      setCopied(false)
+    }
   }
 
-  const handleCopyPhone = () => {
-    navigator.clipboard.writeText('+90 551 176 0010')
-    setCopiedPhone(true)
-    setTimeout(() => setCopiedPhone(false), 2500)
+  const handleCopyPhone = async () => {
+    try {
+      await copyText('+90 551 176 0010')
+      setCopiedPhone(true)
+      setTimeout(() => setCopiedPhone(false), 2500)
+    } catch {
+      setCopiedPhone(false)
+    }
   }
 
   const handleSubmit = (e) => {
@@ -66,28 +91,25 @@ export default function ContactPage() {
       return
     }
 
-    // Simulate sending
-    setTimeout(() => {
-      setStatus({
-        type: 'success',
-        message: t.contact.successMsg,
-      })
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: 'Web & Mobile Development',
-        message: '',
-      })
-      setSubmitting(false)
-    }, 800)
+    const emailBody = [
+      `Name: ${formData.name.trim()}`,
+      `Email: ${formData.email.trim()}`,
+      `Phone: ${formData.phone.trim() || 'Not provided'}`,
+      `Topic: ${formData.subject}`,
+      '',
+      formData.message.trim(),
+    ].join('\n')
+
+    window.location.href = `mailto:halajabban07@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(emailBody)}`
+    setStatus({ type: 'success', message: t.contact.successMsg })
+    setSubmitting(false)
   }
 
   return (
-    <div className="contact-page animate-fade-in py-5">
+    <div className="contact-page contact-shell animate-fade-in py-5">
       <div className="container">
         {/* Header */}
-        <div className="text-center max-w-700 mx-auto mb-5">
+        <div className="text-center max-w-700 mx-auto mb-5 contact-heading">
           <span className="badge category-badge mb-2">{t.contact.badge}</span>
           <h1 className="fw-black display-5 mb-3">{t.contact.title}</h1>
           <p className="lead text-muted">
@@ -98,7 +120,7 @@ export default function ContactPage() {
         <div className="row g-5 align-items-start">
           {/* Form Column */}
           <div className="col-lg-7">
-            <div className="card border-0 shadow-sm p-4 p-md-5 rounded-4">
+            <div className="card contact-form-card border-0 shadow-sm p-4 p-md-5 rounded-4">
               <h2 className="h4 fw-bold mb-4 d-flex align-items-center gap-2">
                 <i className="bi bi-chat-square-text-fill text-teal"></i>
                 <span>{t.contact.formTitle}</span>
@@ -356,16 +378,6 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="mt-4 pt-3 border-top border-light border-opacity-25">
-                <a
-                  href="/cv.pdf"
-                  download
-                  className="btn btn-coral w-100 py-2 d-inline-flex align-items-center justify-content-center gap-2 fw-bold"
-                >
-                  <i className="bi bi-file-earmark-arrow-down-fill"></i>
-                  <span>{t.contact.resumeDownload}</span>
-                </a>
-              </div>
             </div>
           </div>
         </div>

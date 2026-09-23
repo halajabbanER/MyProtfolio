@@ -3,12 +3,8 @@ import { useLanguage } from '../contexts/LanguageContext'
 export default function ProjectCard({ project, index = 0, onDetails }) {
   const { t } = useLanguage()
   const formattedIndex = String(index + 1).padStart(2, '0')
-  const categoryColor = {
-    web: '#0284c7',
-    mobile: '#06b6d4',
-    hardware: '#d97706',
-    desktop: '#8b5cf6',
-  }[project.category?.toLowerCase()] || '#0284c7'
+  const projectColors = ['#0284c7', '#7c3aed', '#0891b2', '#d97706', '#db2777', '#16a34a', '#ea580c', '#2563eb']
+  const categoryColor = projectColors[index % projectColors.length]
 
   const getCategoryIcon = (category) => {
     switch (category?.toLowerCase()) {
@@ -47,14 +43,17 @@ export default function ProjectCard({ project, index = 0, onDetails }) {
           <div className="project-image-shade" aria-hidden="true"></div>
           <div className="project-overlay d-flex align-items-center justify-content-center">
             <span className="badge bg-dark-glass px-3 py-2 d-flex align-items-center gap-1 text-white">
-              <i className="bi bi-zoom-in"></i> {t.projects.showing}
+              <i className="bi bi-zoom-in"></i> {t.projects.preview}
             </span>
           </div>
         </button>
 
         {/* Category Pill with Icon */}
-        <span className="badge category-badge position-absolute top-0 start-0 m-3 shadow-sm d-flex align-items-center gap-1">
-          <i className={`bi ${getCategoryIcon(project.category)}`}></i>
+        <span
+          className="badge project-category-badge position-absolute top-0 start-0 m-3 shadow-sm d-flex align-items-center gap-2"
+          style={{ '--project-accent': categoryColor }}
+        >
+          <i className={`bi ${getCategoryIcon(project.category)} project-category-icon`}></i>
           <span>{project.category}</span>
         </span>
 

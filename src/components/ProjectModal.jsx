@@ -1,15 +1,41 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
 
 export default function ProjectModal({ project, onClose }) {
   const { t } = useLanguage()
+  const closeButtonRef = useRef(null)
+  const previousFocusRef = useRef(null)
   useEffect(() => {
+    if (!project) return undefined
+
+    previousFocusRef.current = document.activeElement
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    closeButtonRef.current?.focus()
+
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose()
+      if (e.key !== 'Tab') return
+
+      const focusable = document.querySelectorAll('.modal-card-custom button, .modal-card-custom a[href]')
+      if (!focusable.length) return
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
     }
     window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [onClose])
+    return () => {
+      document.body.style.overflow = previousOverflow
+      previousFocusRef.current?.focus?.()
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [project, onClose])
 
   if (!project) return null
 
@@ -27,9 +53,10 @@ export default function ProjectModal({ project, onClose }) {
       >
         <button
           type="button"
+          ref={closeButtonRef}
           className="btn-close-custom position-absolute top-0 end-0 m-3 z-3"
           onClick={onClose}
-          aria-label={t.projects.modalTech}
+          aria-label={t.projects.closeModal}
         >
           <i className="bi bi-x-lg"></i>
         </button>
