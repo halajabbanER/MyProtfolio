@@ -3,6 +3,12 @@ import { useLanguage } from '../contexts/LanguageContext'
 export default function ProjectCard({ project, index = 0, onDetails }) {
   const { t } = useLanguage()
   const formattedIndex = String(index + 1).padStart(2, '0')
+  const categoryColor = {
+    web: '#0284c7',
+    mobile: '#06b6d4',
+    hardware: '#d97706',
+    desktop: '#8b5cf6',
+  }[project.category?.toLowerCase()] || '#0284c7'
 
   const getCategoryIcon = (category) => {
     switch (category?.toLowerCase()) {
@@ -20,7 +26,10 @@ export default function ProjectCard({ project, index = 0, onDetails }) {
   }
 
   return (
-    <article className="card project-card h-100 shadow-sm border-0 position-relative overflow-hidden">
+    <article
+      className="card project-card h-100 shadow-sm border-0 position-relative overflow-hidden"
+      style={{ '--project-accent': categoryColor, '--project-delay': `${index * 90}ms` }}
+    >
       {/* Top Preview Image & Badges */}
       <div className="project-preview-wrapper position-relative overflow-hidden">
         <button
@@ -35,6 +44,7 @@ export default function ProjectCard({ project, index = 0, onDetails }) {
             className="card-img-top project-image"
             loading="lazy"
           />
+          <div className="project-image-shade" aria-hidden="true"></div>
           <div className="project-overlay d-flex align-items-center justify-content-center">
             <span className="badge bg-dark-glass px-3 py-2 d-flex align-items-center gap-1 text-white">
               <i className="bi bi-zoom-in"></i> {t.projects.showing}
