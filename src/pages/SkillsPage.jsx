@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../contexts/LanguageContext'
-import BrandIcon from '../components/BrandIcon'
 
 const skillCategories = [
   {
@@ -70,7 +69,20 @@ const toolkit = [
 ]
 
 function ToolkitIcon({ item }) {
-  return <BrandIcon name={item.name} size={30} />
+  if (item.name === 'React' || item.name === 'React Native') {
+    return (
+      <svg className="react-brand-icon" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="3" fill="currentColor" />
+        <g fill="none" stroke="currentColor" strokeWidth="1.7">
+          <ellipse cx="16" cy="16" rx="14" ry="5.5" />
+          <ellipse cx="16" cy="16" rx="14" ry="5.5" transform="rotate(60 16 16)" />
+          <ellipse cx="16" cy="16" rx="14" ry="5.5" transform="rotate(120 16 16)" />
+        </g>
+      </svg>
+    )
+  }
+
+  return <i className={`bi ${item.icon} fs-4`} aria-hidden="true"></i>
 }
 
 export default function SkillsPage() {
