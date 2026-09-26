@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../contexts/LanguageContext'
+import LanyardBadge from '../components/LanyardBadge'
 
 export default function AboutPage() {
   const { t } = useLanguage()
@@ -100,6 +101,11 @@ export default function AboutPage() {
             {/* Right Column: Hanging Lanyard ID Badge & Engineering Snapshot */}
             <div className="col-lg-5">
               <div className="sticky-lg-top pt-2" style={{ top: '90px' }}>
+                {/* Hanging Lanyard ID Badge */}
+                <div className="mb-4 d-flex justify-content-center">
+                  <LanyardBadge />
+                </div>
+
                 {/* Snapshot Card */}
                 <div className="about-card p-4 rounded-4 shadow-sm border">
                   <div className="d-flex align-items-center gap-2 mb-3">
