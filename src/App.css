@@ -2246,8 +2246,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 6;
-  margin-bottom: -18px;
+  z-index: 5;
+  margin-bottom: -10px;
 }
 
 .clasp-metal-head {
@@ -2267,11 +2267,11 @@ body {
 }
 
 .clasp-hook-loop {
-  width: 14px;
-  height: 16px;
+  width: 10px;
+  height: 12px;
   border: 2.5px solid #8C7B6E;
   border-top: none;
-  border-radius: 0 0 7px 7px;
+  border-radius: 0 0 5px 5px;
   background: transparent;
 }
 
