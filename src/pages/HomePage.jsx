@@ -38,9 +38,14 @@ function AnimatedStatValue({ value }) {
 }
 
 export default function HomePage() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const stats = t.home.stats.map((stat, index) => ({ ...stat, icon: ['bi-briefcase', 'bi-translate', 'bi-mortarboard', 'bi-folder-check'][index] }))
   const highlights = t.home.highlights.map((item, index) => ({ ...item, icon: ['bi-server', 'bi-phone', 'bi-cpu'][index], color: ['teal', 'coral', 'cyan'][index] }))
+
+  const rootsBadgeText =
+    language === 'ar' ? 'تطوير الويب منذ 2022' : language === 'tr' ? "2022'den Beri Web" : 'Web Craft Since 2022'
+  const degreeBadgeText =
+    language === 'ar' ? 'هندسة حاسوب • FSMVU' : language === 'tr' ? 'Bilgisayar Müh. • FSMVU' : 'Computer Eng • FSMVU'
 
   return (
     <div className="home-page animate-fade-in">
@@ -96,8 +101,20 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="col-lg-5">
+            <div className="col-lg-5 position-relative hero-code-wrapper">
+              {/* Floating Credential Pill 1: Web Roots Since 2022 */}
+              <div className="hero-floating-pill hero-float-top d-none d-md-inline-flex align-items-center gap-2 shadow-sm">
+                <span className="floating-pill-icon"><i className="bi bi-code-slash text-teal"></i></span>
+                <span className="small font-monospace fw-bold">{rootsBadgeText}</span>
+              </div>
+
               <TypingCodeCard />
+
+              {/* Floating Credential Pill 2: FSMVU Computer Engineering */}
+              <div className="hero-floating-pill hero-float-bottom d-none d-md-inline-flex align-items-center gap-2 shadow-sm">
+                <span className="floating-pill-icon"><i className="bi bi-mortarboard-fill text-coral"></i></span>
+                <span className="small font-monospace fw-bold">{degreeBadgeText}</span>
+              </div>
             </div>
           </div>
         </div>

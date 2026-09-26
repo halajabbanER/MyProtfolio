@@ -38,7 +38,7 @@ export default function LanyardBadge() {
       language === 'ar'
         ? { title: 'تطوير الويب', sub: 'منذ عام 2022' }
         : language === 'tr'
-        ? { title: 'Web Geliştirme', sub: '2022\'den Beri' }
+        ? { title: 'Web Geliştirme', sub: "2022'den Beri" }
         : { title: 'Web Craft', sub: 'Active Since 2022' },
     industry:
       language === 'ar'
@@ -91,7 +91,7 @@ export default function LanyardBadge() {
         <div
           className="holographic-glare-overlay"
           style={{
-            background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(255, 255, 255, 0.5) 0%, rgba(242, 161, 194, 0.25) 35%, rgba(230, 197, 148, 0.18) 60%, transparent 75%)`,
+            background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(255, 255, 255, 0.5) 0%, rgba(244, 114, 182, 0.25) 35%, rgba(224, 159, 103, 0.18) 60%, transparent 75%)`,
             opacity: glare.opacity,
           }}
         ></div>
