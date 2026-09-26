@@ -3,7 +3,7 @@ import { useLanguage } from '../contexts/LanguageContext'
 export default function ProjectCard({ project, index = 0, onDetails }) {
   const { t } = useLanguage()
   const formattedIndex = String(index + 1).padStart(2, '0')
-  const projectColors = ['#0284c7', '#7c3aed', '#0891b2', '#d97706', '#db2777', '#16a34a', '#ea580c', '#2563eb']
+  const projectColors = ['#0284c7', '#7c3aed', '#0891b2', '#d97706', '#06b6d4', '#2563eb', '#38bdf8', '#4f46e5']
   const categoryColor = projectColors[index % projectColors.length]
 
   const getCategoryIcon = (category) => {

@@ -243,12 +243,12 @@ export default function BrandIcon({ name, size = 26, className = '' }) {
   if (norm.includes('logisim') || norm.includes('hardware') || norm.includes('cpu')) {
     return (
       <svg width={size} height={size} viewBox="0 0 32 32" className={`brand-svg ${className}`} aria-label="Logisim">
-        <rect width="32" height="32" rx="6" fill="#0F172A" stroke="#FDA4AF" strokeWidth="1.2" />
-        <rect x="9" y="9" width="14" height="14" rx="2" fill="#1E293B" stroke="#EC4899" strokeWidth="1.5" />
-        <line x1="16" y1="12" x2="16" y2="20" stroke="#EC4899" strokeWidth="1.5" />
-        <line x1="12" y1="16" x2="20" y2="16" stroke="#EC4899" strokeWidth="1.5" />
-        <circle cx="16" cy="16" r="2" fill="#FDA4AF" />
-        <g stroke="#FDA4AF" strokeWidth="1.4" strokeLinecap="round">
+        <rect width="32" height="32" rx="6" fill="#0F172A" stroke="#38BDF8" strokeWidth="1.2" />
+        <rect x="9" y="9" width="14" height="14" rx="2" fill="#1E293B" stroke="#0284C7" strokeWidth="1.5" />
+        <line x1="16" y1="12" x2="16" y2="20" stroke="#0284C7" strokeWidth="1.5" />
+        <line x1="12" y1="16" x2="20" y2="16" stroke="#0284C7" strokeWidth="1.5" />
+        <circle cx="16" cy="16" r="2" fill="#38BDF8" />
+        <g stroke="#38BDF8" strokeWidth="1.4" strokeLinecap="round">
           <line x1="12" y1="5" x2="12" y2="9" />
           <line x1="16" y1="5" x2="16" y2="9" />
           <line x1="20" y1="5" x2="20" y2="9" />

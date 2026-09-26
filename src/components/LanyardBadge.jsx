@@ -71,7 +71,7 @@ export default function LanyardBadge() {
           <div
             className="holographic-glare-overlay"
             style={{
-              background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(255, 255, 255, 0.45) 0%, rgba(251, 113, 133, 0.25) 35%, transparent 70%)`,
+              background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(255, 255, 255, 0.45) 0%, rgba(56, 189, 248, 0.22) 35%, transparent 70%)`,
               opacity: glare.opacity,
             }}
           ></div>
@@ -82,7 +82,7 @@ export default function LanyardBadge() {
           {/* Header Row: ID Code + Golden Microchip */}
           <div className="d-flex justify-content-between align-items-center mb-3 mt-1 px-1">
             <div className="d-flex align-items-center gap-1">
-              <span className="badge-sparkle text-pink">✦</span>
+              <span className="badge-sparkle text-teal">✦</span>
               <span className="badge-serial-id font-monospace fw-bold">HJ-2026</span>
             </div>
             <div className="badge-gold-chip" title="Security Smart Chip">
@@ -103,12 +103,12 @@ export default function LanyardBadge() {
           {/* Name & Title */}
           <div className="text-center badge-details-block">
             <h3 className="badge-user-name fw-black mb-1 letter-spacing-1">HALA JABBAN</h3>
-            <div className="badge-user-role font-monospace small fw-bold mb-2">
+            <div className="badge-user-role font-monospace small fw-bold mb-2 text-teal">
               {roleText}
             </div>
 
             <p className="badge-user-location small text-muted mb-3 font-monospace d-flex align-items-center justify-content-center gap-1">
-              <i className="bi bi-geo-alt-fill text-gold"></i>
+              <i className="bi bi-geo-alt-fill text-coral"></i>
               <span>{locationText}</span>
             </p>
 

@@ -237,8 +237,12 @@ body {
 
 .tech-ticker-track {
   width: max-content;
-  animation: tech-ticker-scroll 42s linear infinite;
+  animation: tech-ticker-scroll 24s linear infinite;
   will-change: transform;
+}
+
+[dir="rtl"] .tech-ticker-track {
+  animation: tech-ticker-scroll-rtl 24s linear infinite;
 }
 
 .tech-ticker-group {
@@ -251,13 +255,24 @@ body {
 
 .tech-ticker-item {
   color: var(--text-ink);
-  transition: color 0.25s ease, transform 0.25s ease, filter 0.25s ease;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  transition: color 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
 }
 
 .tech-ticker-item:hover {
   color: var(--ticker-color);
-  transform: translateY(-4px) scale(1.06);
-  filter: drop-shadow(0 5px 8px color-mix(in srgb, var(--ticker-color) 35%, transparent));
+  border-color: var(--teal-primary);
+  transform: translateY(-3px) scale(1.04);
+}
+
+.ticker-brand-icon {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: transform 0.2s ease;
+}
+
+.tech-ticker-item:hover .ticker-brand-icon {
+  transform: scale(1.15) rotate(3deg);
 }
 
 .tech-ticker-item:hover .ticker-bullet {
@@ -276,6 +291,11 @@ body {
 @keyframes tech-ticker-scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+}
+
+@keyframes tech-ticker-scroll-rtl {
+  from { transform: translateX(0); }
+  to { transform: translateX(50%); }
 }
 
 @keyframes ticker-bullet-pulse {
@@ -360,7 +380,7 @@ body {
 }
 
 .navbar-brand:hover .logo-box {
-  background: linear-gradient(135deg, #06b6d4 0%, #ec4899 50%, #3b82f6 100%);
+  background: linear-gradient(135deg, #06b6d4 0%, #0284c7 50%, #3b82f6 100%);
   background-size: 200% 200%;
   animation: gradientShift 2.5s ease infinite;
   color: #ffffff;
@@ -2196,12 +2216,12 @@ body {
 }
 
 .contact-shell .btn-teal {
-  background: linear-gradient(135deg, var(--teal-primary), #FB7185);
+  background: linear-gradient(135deg, var(--teal-primary), #06b6d4);
 }
 
 [data-theme='dark'] .contact-shell {
   background:
-    radial-gradient(circle at 92% 8%, rgba(251, 113, 133, 0.15), transparent 24%),
+    radial-gradient(circle at 92% 8%, rgba(6, 182, 212, 0.14), transparent 24%),
     linear-gradient(180deg, var(--bg-app) 0%, var(--bg-subtle) 100%);
 }
 
@@ -2210,7 +2230,7 @@ body {
 }
 
 /* ============================================================
-   LANYARD ID BADGE (Pink & Beige Luxury 3D Physics)
+   LANYARD ID BADGE (Professional 3D Blue & Cyan Physics)
    ============================================================ */
 .lanyard-scene {
   position: relative;
@@ -2224,7 +2244,7 @@ body {
 .lanyard-origin-anchor {
   width: 26px;
   height: 6px;
-  background: linear-gradient(90deg, #9C8C7E, #D5C3B2, #9C8C7E);
+  background: linear-gradient(90deg, #64748b, #cbd5e1, #64748b);
   border-radius: 4px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
@@ -2234,10 +2254,10 @@ body {
   height: 42px;
   background: repeating-linear-gradient(
     45deg,
-    #2A1F26,
-    #2A1F26 5px,
-    #D9466F 5px,
-    #D9466F 10px
+    #0f172a,
+    #0f172a 5px,
+    #0284c7 5px,
+    #0284c7 10px
   );
   border-radius: 2px;
   box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
@@ -2246,10 +2266,10 @@ body {
 [data-theme='dark'] .lanyard-ribbon-cord {
   background: repeating-linear-gradient(
     45deg,
-    #18131D,
-    #18131D 5px,
-    #FB7185 5px,
-    #FB7185 10px
+    #080c16,
+    #080c16 5px,
+    #06b6d4 5px,
+    #06b6d4 10px
   );
 }
 
@@ -2264,7 +2284,7 @@ body {
 .clasp-metal-head {
   width: 28px;
   height: 10px;
-  background: linear-gradient(180deg, #FFFFFF 0%, #D5C3B2 45%, #8C7B6E 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 45%, #64748b 100%);
   border-radius: 4px 4px 1px 1px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -2272,15 +2292,15 @@ body {
 .clasp-spring-buckle {
   width: 18px;
   height: 16px;
-  background: linear-gradient(90deg, #B8A89A 0%, #F5EBE1 45%, #9C8C7E 100%);
+  background: linear-gradient(90deg, #94a3b8 0%, #f1f5f9 45%, #64748b 100%);
   border-radius: 2px;
-  border: 1.5px solid #5C4B40;
+  border: 1.5px solid #475569;
 }
 
 .clasp-hook-loop {
   width: 10px;
   height: 12px;
-  border: 2.5px solid #8C7B6E;
+  border: 2.5px solid #64748b;
   border-top: none;
   border-radius: 0 0 5px 5px;
   background: transparent;
@@ -2315,7 +2335,7 @@ body {
   border: 1.5px solid color-mix(in srgb, var(--teal-primary) 30%, var(--border-color));
   border-radius: 24px;
   padding: 16px 22px 22px;
-  box-shadow: 0 20px 48px -15px rgba(42, 31, 38, 0.18), 0 0 24px var(--teal-glow);
+  box-shadow: 0 20px 48px -15px rgba(15, 23, 42, 0.18), 0 0 24px var(--teal-glow);
   position: relative;
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
   user-select: none;
@@ -2327,7 +2347,7 @@ body {
 
 .lanyard-id-card:hover {
   border-color: var(--teal-primary);
-  box-shadow: 0 28px 60px -15px var(--teal-glow), 0 0 32px rgba(230, 197, 148, 0.35);
+  box-shadow: 0 28px 60px -15px var(--teal-glow), 0 0 32px rgba(6, 182, 212, 0.25);
 }
 
 .holographic-glare-overlay {
@@ -2364,8 +2384,8 @@ body {
   width: 32px;
   height: 24px;
   border-radius: 5px;
-  background: linear-gradient(135deg, #F5D0A9 0%, #D4AF37 50%, #C59858 100%);
-  border: 1px solid #E6C594;
+  background: linear-gradient(135deg, #fde68a 0%, #f59e0b 50%, #d97706 100%);
+  border: 1px solid #fbbf24;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   position: relative;
   display: flex;
@@ -2410,17 +2430,25 @@ body {
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #FB7185 0%, #EC4899 50%, #E6C594 100%);
-  box-shadow: 0 0 25px rgba(251, 113, 133, 0.5);
+  background: linear-gradient(135deg, #06b6d4 0%, #0284c7 50%, #3b82f6 100%);
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.45);
   border: 3.5px solid rgba(255, 255, 255, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
   transition: transform 0.3s ease;
 }
 
 .badge-avatar-text {
   font-size: 30px;
-  color: #FFFFFF;
+  color: #ffffff;
   line-height: 1;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
   text-align: center;
   letter-spacing: 0.02em;
 }
@@ -2431,8 +2459,8 @@ body {
   right: 4px;
   width: 24px;
   height: 24px;
-  background: #E6C594;
-  color: #2A1F26;
+  background: #0284c7;
+  color: #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -2458,10 +2486,6 @@ body {
   letter-spacing: 0.08em;
   color: var(--teal-primary);
   font-size: 12px;
-}
-
-.text-gold {
-  color: var(--coral-accent) !important;
 }
 
 .badge-experience-pill {
@@ -2505,4 +2529,16 @@ body {
   font-size: 10.5px;
   letter-spacing: 0.22em;
   display: block;
+}
+
+.brand-svg {
+  display: inline-block;
+  vertical-align: middle;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toolkit-card:hover .brand-svg,
+.tech-ticker-item:hover .brand-svg {
+  transform: scale(1.18) rotate(4deg);
 }
