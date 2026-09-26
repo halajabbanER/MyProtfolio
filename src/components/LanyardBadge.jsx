@@ -91,7 +91,7 @@ export default function LanyardBadge() {
         <div
           className="holographic-glare-overlay"
           style={{
-            background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(255, 255, 255, 0.5) 0%, rgba(244, 114, 182, 0.25) 35%, rgba(224, 159, 103, 0.18) 60%, transparent 75%)`,
+            background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(255, 255, 255, 0.5) 0%, rgba(217, 101, 139, 0.22) 35%, rgba(200, 153, 88, 0.16) 60%, transparent 75%)`,
             opacity: glare.opacity,
           }}
         ></div>

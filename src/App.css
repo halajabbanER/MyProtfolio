@@ -2423,7 +2423,7 @@ body {
 
 .engineer-identity-card:hover {
   border-color: var(--teal-primary);
-  box-shadow: 0 28px 60px -15px var(--teal-glow), 0 0 32px rgba(244, 114, 182, 0.28);
+  box-shadow: 0 28px 60px -15px var(--teal-glow), 0 0 32px rgba(217, 101, 139, 0.22);
 }
 
 .engineer-gentle-float {
@@ -2445,12 +2445,12 @@ body {
   left: 0;
   right: 0;
   height: 3.5px;
-  background: linear-gradient(90deg, var(--teal-primary), #F472B6, var(--coral-accent));
+  background: linear-gradient(90deg, var(--teal-primary), #E87E9F, var(--coral-accent));
 }
 
 .engineer-seal-pill {
   background: var(--teal-subtle);
-  border: 1px solid rgba(244, 114, 182, 0.30);
+  border: 1px solid rgba(217, 101, 139, 0.22);
   border-radius: 9999px;
   padding: 4px 10px;
   font-size: 11px;
@@ -2508,7 +2508,7 @@ body {
   width: 86px;
   height: 86px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--teal-primary) 0%, #F472B6 50%, var(--coral-accent) 100%);
+  background: linear-gradient(135deg, var(--teal-primary) 0%, #E87E9F 50%, var(--coral-accent) 100%);
   box-shadow: 0 6px 20px var(--teal-glow);
   border: 3px solid var(--bg-card);
   display: flex;

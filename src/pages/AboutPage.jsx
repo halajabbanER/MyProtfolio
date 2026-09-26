@@ -4,10 +4,11 @@ import { useLanguage } from '../contexts/LanguageContext'
 import LanyardBadge from '../components/LanyardBadge'
 
 export default function AboutPage() {
-  const { t } = useLanguage()
-  const [openQuestion, setOpenQuestion] = useState(null)
+  const { t, language } = useLanguage()
+  const [openQuestion, setOpenQuestion] = useState(0)
   const [activeLanguage, setActiveLanguage] = useState(null)
   const languages = t.about.languages
+  const qaIcons = ['bi-rocket-takeoff-fill', 'bi-person-badge-fill', 'bi-briefcase-fill', 'bi-stack']
 
   const values = [
     {
@@ -42,9 +43,29 @@ export default function AboutPage() {
           <p className="lead text-muted">
             {t.about.lead}
           </p>
+
+          {/* Quick Credential Ribbon Pills */}
+          <div className="d-flex flex-wrap justify-content-center gap-2 mt-4">
+            <span className="credential-ribbon-pill">
+              <i className="bi bi-mortarboard-fill text-coral me-1.5"></i>
+              <span>{language === 'ar' ? 'هندسة حاسوب FSMVU' : language === 'tr' ? 'FSMVÜ Bilgisayar Mühendisliği' : 'FSMVU Computer Engineering'}</span>
+            </span>
+            <span className="credential-ribbon-pill">
+              <i className="bi bi-code-slash text-teal me-1.5"></i>
+              <span>{language === 'ar' ? 'تطوير الويب منذ 2022' : language === 'tr' ? "2022'den Beri Web Geliştirme" : 'Web Development Since 2022'}</span>
+            </span>
+            <span className="credential-ribbon-pill">
+              <i className="bi bi-buildings-fill text-coral me-1.5"></i>
+              <span>{language === 'ar' ? 'خبرة عملية: Pal4it & Yukatech' : language === 'tr' ? 'Sektör Stajları: Pal4it & Yukatech' : 'Industry: Pal4it & Yukatech'}</span>
+            </span>
+            <span className="credential-ribbon-pill">
+              <i className="bi bi-translate text-teal me-1.5"></i>
+              <span>{language === 'ar' ? '3 لغات: العربية • التركية • الإنجليزية' : language === 'tr' ? '3 Dil: Arapça • Türkçe • İngilizce' : '3 Languages: AR • TR • EN'}</span>
+            </span>
+          </div>
         </div>
 
-        {/* Q&A Section with Hanging Lanyard ID Badge */}
+        {/* Q&A Section with Executive Profile Card */}
         <div className="qa-section mb-5 pb-4">
           <div className="row g-5 align-items-start">
             {/* Left Column: Interactive Q&A */}
@@ -64,13 +85,18 @@ export default function AboutPage() {
                     >
                       <button
                         type="button"
-                        className="qa-question w-100 d-flex align-items-center gap-3 text-start border-0 bg-transparent p-4"
+                        className="qa-question w-100 d-flex align-items-center gap-3 text-start border-0 bg-transparent p-3 p-md-4"
                         aria-expanded={openQuestion === idx}
                         onClick={() => setOpenQuestion(openQuestion === idx ? null : idx)}
                       >
+                        <div className="qa-icon-bubble">
+                          <i className={`bi ${qaIcons[idx % qaIcons.length]}`}></i>
+                        </div>
                         <span className="qa-badge-q flex-shrink-0">Q.{idx + 1}</span>
                         <span className="h6 fw-bold mb-0 text-ink flex-grow-1">{item.q}</span>
-                        <i className={`bi bi-chevron-down qa-chevron ${openQuestion === idx ? 'is-open' : ''}`}></i>
+                        <div className={`qa-chevron ${openQuestion === idx ? 'is-open' : ''}`}>
+                          <i className="bi bi-chevron-down"></i>
+                        </div>
                       </button>
                       {openQuestion === idx && (
                         <div className="qa-answer px-4 pb-4">
