@@ -23,7 +23,7 @@ export default function Navbar({ theme, onToggleTheme }) {
         <div className="container">
           <Link to="/" className="navbar-brand d-flex align-items-center gap-2" onClick={closeMenu}>
             <span className="logo-box">HJ</span>
-            <span className="brand-name">Portfolio</span>
+            <span className="brand-name">Hala Jabban</span>
           </Link>
 
           <div className="d-flex align-items-center gap-2 order-lg-3">
@@ -63,7 +63,7 @@ export default function Navbar({ theme, onToggleTheme }) {
               aria-label="Toggle theme"
               title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             >
-              <i className={`bi ${theme === 'dark' ? 'bi-sun-fill text-warning' : 'bi-moon-stars-fill text-primary'}`}></i>
+              <i className={`bi ${theme === 'dark' ? 'bi-sun-fill text-warning' : 'bi-moon-stars-fill text-teal'}`}></i>
               <span className="theme-toggle-text d-none d-md-inline">{theme === 'dark' ? t.nav.themeLight : t.nav.themeDark}</span>
             </button>
 

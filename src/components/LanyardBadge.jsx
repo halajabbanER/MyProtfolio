@@ -114,9 +114,6 @@ export default function LanyardBadge() {
 
             {/* Experience Pill Tags */}
             <div className="d-flex justify-content-center gap-1 flex-wrap mb-3">
-              <span className="badge-experience-pill">
-                {language === 'ar' ? 'الويب منذ 2022' : language === 'tr' ? "2022'den Beri Web" : 'Web Since 2022'}
-              </span>
               <span className="badge-experience-pill">FSMVU</span>
               <span className="badge-experience-pill">Pal4it (2025)</span>
               <span className="badge-experience-pill">Yukatech (2026)</span>
