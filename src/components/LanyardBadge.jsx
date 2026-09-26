@@ -31,7 +31,7 @@ export default function LanyardBadge() {
     setGlare({
       x: (x / rect.width) * 100,
       y: (y / rect.height) * 100,
-      opacity: 0.55,
+      opacity: 0.6,
     })
     setIsHovered(true)
   }
@@ -67,11 +67,11 @@ export default function LanyardBadge() {
         }}
       >
         <div className="lanyard-id-card shadow-lg position-relative overflow-hidden">
-          {/* Holographic Glare Sheen following cursor */}
+          {/* Holographic Glare Sheen following cursor with Rose & Pearl Sheen */}
           <div
             className="holographic-glare-overlay"
             style={{
-              background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(255, 255, 255, 0.45) 0%, rgba(56, 189, 248, 0.22) 35%, transparent 70%)`,
+              background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(255, 255, 255, 0.55) 0%, rgba(251, 113, 133, 0.35) 35%, rgba(230, 197, 148, 0.2) 60%, transparent 75%)`,
               opacity: glare.opacity,
             }}
           ></div>
