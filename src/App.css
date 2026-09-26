@@ -7,31 +7,27 @@
   --font-main: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'DM Mono', monospace;
 
-  /* ============================================================
-     PINK & BEIGE LUXURY THEME (زهري وبيج) - LIGHT MODE
-     ============================================================ */
-  --bg-app: #FAF5F0;          /* Warm luxury beige / alabaster */
-  --bg-card: #FFFFFF;         /* Crisp clean white */
-  --bg-subtle: #F3ECE2;       /* Warm champagne sand */
-  --bg-glass: rgba(250, 245, 240, 0.94);
+  /* Color Palette - Light Mode */
+  --bg-app: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-subtle: #f1f5f9;
+  --bg-glass: rgba(255, 255, 255, 0.88);
 
-  --text-ink: #2C1826;        /* Deep espresso plum */
-  --text-muted: #7D6473;      /* Warm rose taupe */
-  --border-color: #E8DACD;    /* Soft warm beige-rose border */
+  --text-ink: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
 
-  /* Pink (زهري) Primary & Accents */
-  --teal-primary: #E11D48;    /* Royal rose pink */
-  --teal-hover: #BE123C;      /* Deep rose */
-  --teal-subtle: #FCE7F3;     /* Petal blush pink */
-  --teal-glow: rgba(225, 29, 72, 0.28);
+  --teal-primary: #0284c7;
+  --teal-hover: #0369a1;
+  --teal-subtle: #e0f2fe;
+  --teal-glow: rgba(2, 132, 199, 0.22);
 
-  /* Beige / Champagne (بيج) Accent */
-  --coral-accent: #C59858;    /* Warm metallic champagne gold / beige */
-  --coral-subtle: #FDF4E7;    /* Delicate cream latte */
+  --coral-accent: #d97706;
+  --coral-subtle: #fef3c7;
 
-  --shadow-sm: 0 4px 14px rgba(44, 24, 38, 0.05);
-  --shadow-md: 0 12px 30px rgba(44, 24, 38, 0.08);
-  --shadow-lg: 0 24px 56px rgba(44, 24, 38, 0.12);
+  --shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 12px 28px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 24px 54px rgba(15, 23, 42, 0.12);
 
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -40,31 +36,26 @@
 
 [data-theme='dark'],
 [data-bs-theme='dark'] {
-  /* ============================================================
-     PINK & BEIGE LUXURY THEME (زهري وبيج) - DARK MODE
-     ============================================================ */
-  --bg-app: #120A13;          /* Deep obsidian noir with plum warmth */
-  --bg-card: #1D1120;         /* Deep plum velvet noir */
-  --bg-subtle: #29182C;       /* Dark warm aubergine */
-  --bg-glass: rgba(29, 17, 32, 0.94);
+  --bg-app: #080c16;
+  --bg-card: #0f172a;
+  --bg-subtle: #182238;
+  --bg-glass: rgba(15, 23, 42, 0.9);
 
-  --text-ink: #FAF3EE;        /* Warm ivory cream */
-  --text-muted: #BBA3B1;      /* Muted warm almond rose-beige */
-  --border-color: #3F243E;    /* Warm rose-gold obsidian */
+  --text-ink: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #1e293b;
 
-  /* Pink (زهري) Primary & Accents */
-  --teal-primary: #FB7185;    /* Luminous blush electric rose pink */
-  --teal-hover: #F43F5E;      /* Vivid rose pink */
-  --teal-subtle: #3E1629;     /* Dark velvet rose */
-  --teal-glow: rgba(251, 113, 133, 0.38);
+  --teal-primary: #06b6d4;
+  --teal-hover: #0891b2;
+  --teal-subtle: #083344;
+  --teal-glow: rgba(6, 182, 212, 0.3);
 
-  /* Beige / Champagne (بيج) Accent */
-  --coral-accent: #E6C594;    /* Luminous champagne gold / beige */
-  --coral-subtle: #3A2B1C;    /* Warm dark champagne sand */
+  --coral-accent: #f59e0b;
+  --coral-subtle: #451a03;
 
-  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.45);
-  --shadow-md: 0 14px 34px rgba(0, 0, 0, 0.65);
-  --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.82);
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 14px 32px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.75);
 }
 
 /* ============================================================
@@ -97,13 +88,13 @@ body {
 }
 
 .text-teal-gradient {
-  background: linear-gradient(135deg, var(--teal-primary) 0%, #F43F5E 50%, #FB7185 100%);
+  background: linear-gradient(135deg, var(--teal-primary) 0%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-coral-gradient {
-  background: linear-gradient(135deg, var(--coral-accent) 0%, #E6C594 50%, #F5D0A9 100%);
+  background: linear-gradient(135deg, var(--coral-accent) 0%, #f59e0b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -356,25 +347,25 @@ body {
   width: 38px;
   height: 38px;
   border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, #E11D48 0%, #FB7185 50%, #C59858 100%);
+  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
   color: #ffffff;
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.05em;
-  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.4);
+  box-shadow: 0 4px 14px rgba(6, 182, 212, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.25);
   transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   position: relative;
 }
 
 .navbar-brand:hover .logo-box {
-  background: linear-gradient(135deg, #BE123C 0%, #E11D48 50%, #E6C594 100%);
+  background: linear-gradient(135deg, #06b6d4 0%, #ec4899 50%, #3b82f6 100%);
   background-size: 200% 200%;
   animation: gradientShift 2.5s ease infinite;
   color: #ffffff;
   transform: scale(1.14) rotate(-6deg);
-  box-shadow: 0 8px 24px rgba(225, 29, 72, 0.55), 0 0 16px rgba(197, 152, 88, 0.4);
+  box-shadow: 0 8px 24px rgba(6, 182, 212, 0.55), 0 0 16px rgba(139, 92, 246, 0.4);
 }
 
 .brand-name {
@@ -383,11 +374,11 @@ body {
 }
 
 .navbar-brand:hover .brand-name {
-  background: linear-gradient(135deg, #E11D48 0%, #FB7185 50%, #C59858 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #38bdf8 50%, #d97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transform: translateX(3px);
-  filter: drop-shadow(0 2px 8px rgba(225, 29, 72, 0.25));
+  filter: drop-shadow(0 2px 8px rgba(8, 124, 112, 0.25));
 }
 
 @keyframes gradientShift {
@@ -476,11 +467,11 @@ body {
 
 .lang-pill-btn:hover {
   color: var(--teal-primary);
-  background: var(--teal-subtle);
+  background: rgba(6, 182, 212, 0.12);
 }
 
 .lang-pill-btn.active {
-  background: linear-gradient(135deg, var(--teal-primary) 0%, #FB7185 100%);
+  background: linear-gradient(135deg, var(--teal-primary) 0%, #38bdf8 100%);
   color: #ffffff !important;
   box-shadow: 0 2px 8px var(--teal-glow);
 }
@@ -526,11 +517,10 @@ body {
 }
 
 .btn-teal:hover {
-  background: linear-gradient(135deg, var(--teal-hover) 0%, var(--teal-primary) 100%);
+  background: linear-gradient(135deg, var(--teal-primary) 0%, #0284c7 100%);
   border-color: transparent;
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px var(--teal-glow);
-  color: #ffffff !important;
+  box-shadow: 0 8px 20px rgba(8, 124, 112, 0.4), 0 0 12px rgba(2, 132, 199, 0.3);
 }
 
 .btn-outline-teal {
@@ -543,7 +533,7 @@ body {
 }
 
 .btn-outline-teal:hover {
-  background: linear-gradient(135deg, var(--teal-primary) 0%, #FB7185 100%);
+  background: linear-gradient(135deg, var(--teal-primary) 0%, #38bdf8 100%);
   border-color: transparent;
   color: #ffffff;
   transform: translateY(-2px);
@@ -639,13 +629,13 @@ body {
 }
 
 .icon-cyan {
-  background-color: var(--coral-subtle);
-  color: var(--coral-accent);
+  background-color: #e0f2fe;
+  color: #0284c7;
 }
 
 [data-theme='dark'] .icon-cyan {
-  background-color: var(--coral-subtle);
-  color: var(--coral-accent);
+  background-color: #082f49;
+  color: #38bdf8;
 }
 
 /* ============================================================
@@ -1389,13 +1379,13 @@ body {
 
 .contact-shell .form-control:focus,
 .contact-shell .form-select:focus {
-  border-color: var(--teal-primary) !important;
-  box-shadow: 0 0 0 3px var(--teal-glow) !important;
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.18) !important;
 }
 
 .contact-shell .input-group:focus-within {
   transform: translateY(-2px);
-  filter: drop-shadow(0 7px 12px var(--teal-glow));
+  filter: drop-shadow(0 7px 12px rgba(6, 182, 212, 0.12));
 }
 
 .contact-shell .form-control,
@@ -1405,8 +1395,8 @@ body {
 }
 
 .contact-shell .form-select option {
-  background: var(--bg-card);
-  color: var(--text-ink);
+  background: #12151f;
+  color: #f8fafc;
 }
 
 .contact-shell .form-select {
@@ -1414,13 +1404,13 @@ body {
 }
 
 .contact-shell .btn-teal {
-  background: linear-gradient(135deg, var(--teal-primary), #FB7185);
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
   border: 0;
-  box-shadow: 0 12px 26px var(--teal-glow);
+  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.28);
 }
 
 .contact-shell .btn-teal:hover {
-  box-shadow: 0 16px 32px var(--teal-glow);
+  box-shadow: 0 16px 32px rgba(6, 182, 212, 0.34);
 }
 
 .contact-shell .contact-form-card .btn-teal {
@@ -2001,41 +1991,23 @@ body {
 .contact-sidebar-card {
   min-height: 100%;
   padding: clamp(1.5rem, 4vw, 3rem) !important;
-  background: linear-gradient(145deg, #BE185D 0%, #D9466F 50%, #9D174D 100%) !important;
-  box-shadow: 0 24px 55px rgba(217, 70, 111, 0.28) !important;
-}
-
-.contact-sidebar-card:hover {
-  box-shadow: 0 28px 54px rgba(217, 70, 111, 0.38) !important;
+  background: linear-gradient(150deg, #075985 0%, #0e7490 58%, #164e63 100%);
+  box-shadow: 0 24px 55px rgba(7, 89, 133, 0.2) !important;
 }
 
 .contact-form-card {
   padding: clamp(1.5rem, 4vw, 3rem) !important;
-  box-shadow: var(--shadow-lg) !important;
-  background: var(--bg-card) !important;
-  border: 1px solid var(--border-color) !important;
-  position: relative;
-  overflow: hidden;
-}
-
-.contact-form-card::before {
-  content: '';
-  position: absolute;
-  inset: 0 0 auto;
-  height: 5px;
-  background: linear-gradient(90deg, var(--teal-primary), #FB7185, var(--coral-accent));
+  box-shadow: 0 20px 55px rgba(15, 23, 42, 0.09) !important;
 }
 
 .contact-form-card h2 {
   font-size: clamp(1.25rem, 2vw, 1.65rem);
   margin-bottom: 2rem !important;
-  color: var(--text-ink) !important;
 }
 
 .contact-form-card .form-label {
   font-size: 0.78rem;
   letter-spacing: 0.02em;
-  color: var(--text-ink) !important;
 }
 
 .contact-form-card .form-control,
@@ -2043,9 +2015,6 @@ body {
 .contact-form-card .input-group-text {
   min-height: 54px;
   border-radius: 14px;
-  background: var(--bg-card) !important;
-  border-color: var(--border-color) !important;
-  color: var(--text-ink) !important;
 }
 
 .contact-form-card .input-group-text {
@@ -2061,8 +2030,6 @@ body {
   min-height: 52px;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  background: linear-gradient(135deg, var(--teal-primary), #FB7185);
-  box-shadow: 0 8px 22px var(--teal-glow);
 }
 
 @media (max-width: 767px) {
@@ -2087,14 +2054,14 @@ body {
 /* Contact page visual refresh */
 .contact-shell {
   background:
-    radial-gradient(circle at 92% 8%, rgba(251, 113, 133, 0.12), transparent 24%),
+    radial-gradient(circle at 92% 8%, rgba(14, 165, 233, 0.12), transparent 24%),
     linear-gradient(180deg, var(--bg-app) 0%, var(--bg-subtle) 100%);
   color: var(--text-ink);
   padding-bottom: 7rem !important;
 }
 
 .contact-shell::before {
-  background-image: linear-gradient(rgba(225, 29, 72, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(225, 29, 72, 0.04) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(2, 132, 199, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(2, 132, 199, 0.045) 1px, transparent 1px);
   background-size: 44px 44px;
   mask-image: linear-gradient(to bottom, black, transparent 70%);
 }
@@ -2104,7 +2071,7 @@ body {
   font-size: clamp(2.5rem, 5vw, 4.8rem) !important;
   line-height: 1.02 !important;
   letter-spacing: -0.045em;
-  background: linear-gradient(110deg, var(--text-ink) 20%, var(--teal-primary) 70%, #FB7185 100%);
+  background: linear-gradient(110deg, var(--text-ink) 20%, var(--teal-primary) 72%, #06b6d4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -2121,7 +2088,7 @@ body {
   height: 4px;
   margin: 1.5rem auto 0;
   border-radius: 99px;
-  background: linear-gradient(90deg, var(--teal-primary), var(--coral-accent));
+  background: linear-gradient(90deg, var(--teal-primary), #06b6d4);
 }
 
 .contact-heading .lead,
@@ -2135,14 +2102,58 @@ body {
   border-color: var(--border-color);
 }
 
+.contact-form-card {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: var(--shadow-lg) !important;
+  backdrop-filter: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  background: linear-gradient(90deg, var(--teal-primary), #06b6d4, #38bdf8);
+}
+
+.contact-form-card h2,
+.contact-form-card .form-label {
+  color: var(--text-ink) !important;
+}
+
+.contact-shell .form-control,
+.contact-shell .form-select,
+.contact-shell .input-group-text {
+  background: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-ink) !important;
+}
+
+.contact-shell .form-control::placeholder {
+  color: var(--text-muted);
+}
+
+.contact-sidebar-card {
+  background: linear-gradient(145deg, #075985 0%, #0e7490 55%, #155e75 100%);
+  box-shadow: 0 22px 44px rgba(7, 89, 133, 0.22) !important;
+  min-height: 100%;
+}
+
+.contact-sidebar-card:hover {
+  box-shadow: 0 28px 54px rgba(7, 89, 133, 0.3) !important;
+}
+
 .contact-sidebar-card .bg-white.bg-opacity-10 {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background-color: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 .contact-sidebar-card .sidebar-icon-box {
-  background-color: rgba(255, 255, 255, 0.18);
-  color: #FDF8F3;
+  background-color: rgba(255, 255, 255, 0.14);
+  color: #bae6fd;
 }
 
 .contact-sidebar-card h2 {
@@ -2155,7 +2166,7 @@ body {
 }
 
 .contact-sidebar-card a:not(.btn):hover {
-  color: #FDF8F3 !important;
+  color: #bae6fd !important;
   transform: translateX(3px);
 }
 
@@ -2185,329 +2196,15 @@ body {
 }
 
 .contact-shell .btn-teal {
-  background: linear-gradient(135deg, var(--teal-primary), #FB7185);
+  background: linear-gradient(135deg, var(--teal-primary), #06b6d4);
 }
 
 [data-theme='dark'] .contact-shell {
   background:
-    radial-gradient(circle at 92% 8%, rgba(251, 113, 133, 0.15), transparent 24%),
+    radial-gradient(circle at 92% 8%, rgba(6, 182, 212, 0.14), transparent 24%),
     linear-gradient(180deg, var(--bg-app) 0%, var(--bg-subtle) 100%);
 }
 
 [data-theme='dark'] .contact-form-card {
   background: var(--bg-card) !important;
-}
-
-/* ============================================================
-   LANYARD ID BADGE (Pink & Beige Luxury 3D Physics)
-   ============================================================ */
-.lanyard-scene {
-  position: relative;
-  width: 100%;
-  max-width: 320px;
-  margin: 0 auto;
-  perspective: 1000px;
-  transform-style: preserve-3d;
-}
-
-.lanyard-origin-anchor {
-  width: 26px;
-  height: 6px;
-  background: linear-gradient(90deg, #9C8C7E, #D5C3B2, #9C8C7E);
-  border-radius: 4px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-.lanyard-ribbon-cord {
-  width: 14px;
-  height: 42px;
-  background: repeating-linear-gradient(
-    45deg,
-    #2A1F26,
-    #2A1F26 5px,
-    #D9466F 5px,
-    #D9466F 10px
-  );
-  border-radius: 2px;
-  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
-}
-
-[data-theme='dark'] .lanyard-ribbon-cord {
-  background: repeating-linear-gradient(
-    45deg,
-    #18131D,
-    #18131D 5px,
-    #FB7185 5px,
-    #FB7185 10px
-  );
-}
-
-.lanyard-clasp-assembly {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 5;
-  margin-bottom: -10px;
-}
-
-.clasp-metal-head {
-  width: 28px;
-  height: 10px;
-  background: linear-gradient(180deg, #FFFFFF 0%, #D5C3B2 45%, #8C7B6E 100%);
-  border-radius: 4px 4px 1px 1px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.clasp-spring-buckle {
-  width: 18px;
-  height: 16px;
-  background: linear-gradient(90deg, #B8A89A 0%, #F5EBE1 45%, #9C8C7E 100%);
-  border-radius: 2px;
-  border: 1.5px solid #5C4B40;
-}
-
-.clasp-hook-loop {
-  width: 10px;
-  height: 12px;
-  border: 2.5px solid #8C7B6E;
-  border-top: none;
-  border-radius: 0 0 5px 5px;
-  background: transparent;
-}
-
-.lanyard-card-container {
-  width: 100%;
-  transform-origin: top center;
-  will-change: transform;
-}
-
-.lanyard-gentle-sway {
-  animation: lanyardGentleSway 6s ease-in-out infinite alternate;
-}
-
-@keyframes lanyardGentleSway {
-  0% {
-    transform: perspective(900px) rotateZ(-1.5deg) rotateY(-2deg);
-  }
-  50% {
-    transform: perspective(900px) rotateZ(0deg) rotateY(0deg);
-  }
-  100% {
-    transform: perspective(900px) rotateZ(1.5deg) rotateY(2deg);
-  }
-}
-
-.lanyard-id-card {
-  width: 100%;
-  background: linear-gradient(165deg, var(--bg-card) 0%, var(--bg-subtle) 100%);
-  color: var(--text-ink);
-  border: 1.5px solid color-mix(in srgb, var(--teal-primary) 30%, var(--border-color));
-  border-radius: 24px;
-  padding: 16px 22px 22px;
-  box-shadow: 0 20px 48px -15px rgba(42, 31, 38, 0.18), 0 0 24px var(--teal-glow);
-  position: relative;
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
-  user-select: none;
-}
-
-[data-theme='dark'] .lanyard-id-card {
-  box-shadow: 0 24px 54px -15px rgba(0, 0, 0, 0.7), 0 0 26px var(--teal-glow);
-}
-
-.lanyard-id-card:hover {
-  border-color: var(--teal-primary);
-  box-shadow: 0 28px 60px -15px var(--teal-glow), 0 0 32px rgba(230, 197, 148, 0.35);
-}
-
-.holographic-glare-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 4;
-  mix-blend-mode: overlay;
-  transition: opacity 0.2s ease;
-}
-
-.badge-slot-punch {
-  width: 38px;
-  height: 8px;
-  border-radius: 9999px;
-  background: var(--bg-app);
-  border: 1.5px solid var(--border-color);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
-  margin-bottom: 12px;
-}
-
-.badge-sparkle {
-  color: var(--teal-primary);
-  font-size: 13px;
-}
-
-.badge-serial-id {
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
-}
-
-.badge-gold-chip {
-  width: 32px;
-  height: 24px;
-  border-radius: 5px;
-  background: linear-gradient(135deg, #F5D0A9 0%, #D4AF37 50%, #C59858 100%);
-  border: 1px solid #E6C594;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.chip-trace {
-  width: 22px;
-  height: 14px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 2px;
-  position: relative;
-}
-
-.chip-trace::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: rgba(0, 0, 0, 0.25);
-}
-
-.chip-trace::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: rgba(0, 0, 0, 0.25);
-}
-
-.badge-avatar-frame {
-  width: 90px;
-  height: 90px;
-}
-
-.badge-avatar-circle {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #FB7185 0%, #EC4899 50%, #E6C594 100%);
-  box-shadow: 0 0 25px rgba(251, 113, 133, 0.5);
-  border: 3.5px solid rgba(255, 255, 255, 0.65);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  transition: transform 0.3s ease;
-}
-
-.badge-avatar-text {
-  font-size: 30px;
-  color: #FFFFFF;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  letter-spacing: 0.02em;
-}
-
-.badge-verified-badge {
-  position: absolute;
-  bottom: 2px;
-  right: 4px;
-  width: 24px;
-  height: 24px;
-  background: #E6C594;
-  color: #2A1F26;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  font-weight: 900;
-  border: 2px solid var(--bg-card);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
-
-[dir="rtl"] .badge-verified-badge {
-  right: auto;
-  left: 4px;
-}
-
-.badge-user-name {
-  font-size: 1.3rem;
-  letter-spacing: 0.06em;
-  color: var(--text-ink);
-}
-
-.badge-user-role {
-  letter-spacing: 0.08em;
-  color: var(--teal-primary);
-  font-size: 12px;
-}
-
-.badge-experience-pill {
-  font-size: 10.5px;
-  font-family: var(--font-mono);
-  font-weight: 600;
-  padding: 3px 9px;
-  background: var(--bg-subtle);
-  border: 1px solid color-mix(in srgb, var(--teal-primary) 20%, var(--border-color));
-  border-radius: 9999px;
-  color: var(--text-muted);
-  transition: all 0.2s ease;
-}
-
-.badge-experience-pill:hover {
-  color: var(--teal-primary);
-  border-color: var(--teal-primary);
-  background: var(--teal-subtle);
-}
-
-.badge-laser-barcode {
-  height: 24px;
-  width: 100%;
-  max-width: 190px;
-  margin: 0 auto 5px;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--text-muted),
-    var(--text-muted) 2px,
-    transparent 2px,
-    transparent 4px,
-    var(--text-muted) 4px,
-    var(--text-muted) 7px,
-    transparent 7px,
-    transparent 9px
-  );
-  opacity: 0.65;
-}
-
-.badge-barcode-digits {
-  font-size: 10.5px;
-  letter-spacing: 0.22em;
-  display: block;
-}
-
-.brand-svg {
-  display: inline-block;
-  vertical-align: middle;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.toolkit-card:hover .brand-svg,
-.tech-ticker-item:hover .brand-svg {
-  transform: scale(1.18) rotate(4deg);
 }
