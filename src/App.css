@@ -8,31 +8,30 @@
   --font-mono: 'DM Mono', monospace;
 
   /* ============================================================
-     SOFT PASTEL BLUSH PINK & WARM LUXURY BEIGE (زهري كاشف وبيج فخم) - LIGHT MODE
+     SOFT LIGHT PINK & WARM BLUSH THEME (زهري كاشف وناعم) - LIGHT MODE
      ============================================================ */
-  --bg-app: #FAF6F1;          /* Warm luxury alabaster / beige canvas */
+  --bg-app: #FFF5F7;          /* Softest whisper-light pastel pink canvas */
   --bg-card: #FFFFFF;         /* Pure crisp white card background */
-  --bg-subtle: #F5ECE3;       /* Warm champagne sand background */
-  --bg-glass: rgba(250, 246, 241, 0.94);
+  --bg-subtle: #FDE8ED;       /* Delicate blush pink background */
+  --bg-glass: rgba(255, 245, 247, 0.94);
 
-  --text-ink: #261A22;        /* Deep espresso plum / warm charcoal */
-  --text-muted: #7A6570;      /* Elegant soft cashmere taupe */
-  --border-color: #EBDED4;    /* Soft delicate warm beige-rose border */
+  --text-ink: #3B202E;        /* Soft plum mocha for gentle contrast */
+  --text-muted: #8E6B7E;      /* Elegant soft rose taupe */
+  --border-color: #F7D2DC;    /* Gentle light pink border */
 
-  /* Soft Pastel Blush Pink (زهري كاشف) Primary & Accents */
-  --teal-primary: #D9658B;    /* Luminous delicate pastel blush pink */
-  --teal-hover: #C55379;      /* Refined soft rose hover */
-  --teal-subtle: #FDF2F5;     /* Delicate petal blush (soft & easy on eyes) */
-  --teal-border: #F5D3DF;     /* Soft pastel pink border */
-  --teal-glow: rgba(217, 101, 139, 0.18);
+  /* Soft Light Pink (زهري كاشف) Primary & Accents */
+  --teal-primary: #F472B6;    /* Charming light blush pink (Pink 400) */
+  --teal-hover: #EC4899;      /* Vibrant rose petal pink on hover */
+  --teal-subtle: #FCE7F3;     /* Ultra soft fairy dust pink */
+  --teal-glow: rgba(244, 114, 182, 0.28);
 
-  /* Warm Luxury Beige / Champagne (بيج فخم) Accent */
-  --coral-accent: #C89958;    /* Warm metallic champagne gold / beige */
-  --coral-subtle: #FAF2E8;    /* Delicate cream latte */
+  /* Cream Champagne / Warm Rosé Accent */
+  --coral-accent: #E09F67;    /* Warm soft champagne apricot */
+  --coral-subtle: #FFF0E6;    /* Cream peach tone */
 
-  --shadow-sm: 0 4px 14px rgba(44, 24, 38, 0.04);
-  --shadow-md: 0 12px 30px rgba(44, 24, 38, 0.07);
-  --shadow-lg: 0 24px 56px rgba(44, 24, 38, 0.10);
+  --shadow-sm: 0 4px 14px rgba(74, 30, 56, 0.05);
+  --shadow-md: 0 12px 30px rgba(74, 30, 56, 0.07);
+  --shadow-lg: 0 24px 56px rgba(74, 30, 56, 0.10);
 
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -42,27 +41,26 @@
 [data-theme='dark'],
 [data-bs-theme='dark'] {
   /* ============================================================
-     SOFT PASTEL BLUSH PINK & WARM LUXURY BEIGE - DARK MODE
+     SOFT LIGHT PINK THEME (زهري كاشف متناسق) - DARK MODE
      ============================================================ */
-  --bg-app: #140C14;          /* Deep warm plum-obsidian noir */
-  --bg-card: #1E121E;         /* Deep plum velvet noir */
-  --bg-subtle: #291828;       /* Dark warm aubergine */
-  --bg-glass: rgba(30, 18, 30, 0.94);
+  --bg-app: #180F16;          /* Deep nocturnal plum-black */
+  --bg-card: #231621;         /* Velvety midnight rose */
+  --bg-subtle: #331D2F;       /* Muted mulberry blush */
+  --bg-glass: rgba(35, 22, 33, 0.94);
 
-  --text-ink: #FAF4EF;        /* Warm ivory cream */
-  --text-muted: #BBA3AF;      /* Muted warm almond rose-beige */
-  --border-color: #3E243A;    /* Warm rose-gold obsidian */
+  --text-ink: #FFF1F5;        /* Soft pearl pink-white */
+  --text-muted: #D1AEC3;      /* Muted light lavender-pink */
+  --border-color: #4C2642;    /* Soft dark plum-rose outline */
 
-  /* Soft Pastel Blush Pink (زهري كاشف) Primary & Accents */
-  --teal-primary: #F7A2C0;    /* Luminous soft pastel blush pink */
-  --teal-hover: #EF8DB0;      /* Soft vibrant petal */
-  --teal-subtle: rgba(247, 162, 192, 0.12); /* Subtle dark petal tint */
-  --teal-border: rgba(247, 162, 192, 0.25);
-  --teal-glow: rgba(247, 162, 192, 0.25);
+  /* Soft Light Pink (زهري كاشف مضيء) Primary & Accents */
+  --teal-primary: #F9A8D4;    /* Luminous light pastel pink */
+  --teal-hover: #F472B6;      /* Vivid petal pink */
+  --teal-subtle: #451E39;     /* Soft dark petal */
+  --teal-glow: rgba(249, 168, 212, 0.35);
 
-  /* Warm Luxury Beige / Champagne (بيج فخم) Accent */
-  --coral-accent: #E6C594;    /* Luminous champagne gold / beige */
-  --coral-subtle: #3A2B1C;    /* Warm dark champagne sand */
+  /* Warm Rosé Beige Accent */
+  --coral-accent: #FBCFE8;    /* Pastel blush champagne */
+  --coral-subtle: #3D2235;    /* Warm dark rose nuance */
 
   --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.45);
   --shadow-md: 0 14px 34px rgba(0, 0, 0, 0.65);
@@ -84,16 +82,16 @@ body {
   min-height: 100vh;
   background-color: var(--bg-app);
   background-image:
-    radial-gradient(ellipse 65% 45% at 15% 10%, rgba(217, 101, 139, 0.09), transparent 48%),
-    radial-gradient(ellipse 55% 50% at 85% 85%, rgba(200, 153, 88, 0.08), transparent 48%);
+    radial-gradient(ellipse 65% 45% at 15% 10%, rgba(244, 114, 182, 0.13), transparent 48%),
+    radial-gradient(ellipse 55% 50% at 85% 85%, rgba(224, 159, 103, 0.10), transparent 48%);
   background-attachment: fixed;
   color: var(--text-ink);
 }
 
 [data-theme='dark'] .portfolio-app {
   background-image:
-    radial-gradient(ellipse 65% 45% at 15% 10%, rgba(247, 162, 192, 0.09), transparent 48%),
-    radial-gradient(ellipse 55% 50% at 85% 85%, rgba(230, 197, 148, 0.06), transparent 48%);
+    radial-gradient(ellipse 65% 45% at 15% 10%, rgba(249, 168, 212, 0.10), transparent 48%),
+    radial-gradient(ellipse 55% 50% at 85% 85%, rgba(251, 207, 232, 0.06), transparent 48%);
 }
 
 .text-ink {
@@ -109,13 +107,13 @@ body {
 }
 
 .text-teal-gradient {
-  background: linear-gradient(135deg, var(--teal-primary) 0%, #E87E9F 50%, var(--coral-accent) 100%);
+  background: linear-gradient(135deg, var(--teal-primary) 0%, #F472B6 45%, #F9A8D4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-coral-gradient {
-  background: linear-gradient(135deg, var(--coral-accent) 0%, #D8A468 50%, var(--teal-primary) 100%);
+  background: linear-gradient(135deg, var(--coral-accent) 0%, #F472B6 60%, #FBCFE8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -203,99 +201,20 @@ body {
   }
 }
 
-.credential-ribbon-pill {
-  background: var(--bg-card);
-  color: var(--text-ink);
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 8px 16px;
-  border-radius: 9999px;
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-sm);
-  transition: all 0.25s ease;
-  display: inline-flex;
-  align-items: center;
-}
-
-.credential-ribbon-pill:hover {
-  border-color: var(--teal-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px var(--teal-glow);
-}
-
 .qa-card {
   background-color: var(--bg-card);
-  border: 1.5px solid var(--border-color) !important;
-  border-radius: var(--radius-lg) !important;
+  border-color: var(--border-color) !important;
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-  box-shadow: var(--shadow-sm);
-}
-
-.qa-card:hover {
-  border-color: rgba(217, 101, 139, 0.4) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px var(--teal-glow);
-}
-
-.qa-card.is-open {
-  border-color: var(--teal-primary) !important;
-  box-shadow: 0 12px 32px var(--teal-glow);
-  background: linear-gradient(180deg, var(--bg-card) 0%, var(--teal-subtle) 100%);
-  border-inline-start: 4px solid var(--teal-primary) !important;
-}
-
-.qa-icon-bubble {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: var(--teal-subtle);
-  border: 1px solid rgba(217, 101, 139, 0.2);
-  display: grid;
-  place-items: center;
-  font-size: 16px;
-  flex-shrink: 0;
-  transition: all 0.25s ease;
-}
-
-.qa-card.is-open .qa-icon-bubble {
-  background: var(--teal-primary);
-  color: #ffffff !important;
-  border-color: var(--teal-primary);
-}
-
-.qa-card.is-open .qa-icon-bubble i {
-  color: #ffffff !important;
-}
-
-.qa-badge-q {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 9999px;
-  background: var(--bg-subtle);
-  color: var(--text-muted);
-  border: 1px solid var(--border-color);
-  transition: all 0.25s ease;
-}
-
-.qa-card.is-open .qa-badge-q {
-  background: var(--teal-primary);
-  color: #ffffff;
-  border-color: var(--teal-primary);
 }
 
 .qa-question {
   color: var(--text-ink);
   cursor: pointer;
   min-height: 74px;
-  transition: background-color 0.25s ease;
 }
 
 .qa-question:hover {
-  background-color: rgba(217, 101, 139, 0.04);
+  background-color: var(--bg-subtle);
 }
 
 .qa-question:focus-visible {
@@ -304,34 +223,21 @@ body {
 }
 
 .qa-chevron {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: var(--bg-subtle);
-  border: 1px solid var(--border-color);
-  display: grid;
-  place-items: center;
   color: var(--teal-primary);
-  font-size: 13px;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.25s ease, color 0.25s ease;
-  flex-shrink: 0;
+  transition: transform 0.25s ease;
 }
 
 .qa-chevron.is-open {
   transform: rotate(180deg);
-  background: var(--teal-primary);
-  color: #ffffff;
-  border-color: var(--teal-primary);
 }
 
 .qa-answer {
-  border-top: 1px solid rgba(217, 101, 139, 0.15);
-  animation: qa-answer-reveal 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-  padding: 1.25rem 1.5rem 1.5rem;
+  border-top: 1px solid var(--border-color);
+  animation: qa-answer-reveal 0.25s ease-out;
 }
 
 @keyframes qa-answer-reveal {
-  from { opacity: 0; transform: translateY(-8px); }
+  from { opacity: 0; transform: translateY(-6px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -792,8 +698,22 @@ body {
 .editor-tab {
   background-color: rgba(255, 255, 255, 0.08);
   color: #EBD6DF;
-  font-size: 11px;
+  font-size: 11.5px;
   border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.editor-tab:hover {
+  background-color: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.active-editor-tab {
+  background-color: rgba(217, 101, 139, 0.28) !important;
+  color: #ffffff !important;
+  border-color: var(--teal-primary) !important;
+  box-shadow: 0 2px 10px var(--teal-glow);
 }
 .typing-cursor {
   display: inline-block;
@@ -2423,7 +2343,7 @@ body {
 
 .engineer-identity-card:hover {
   border-color: var(--teal-primary);
-  box-shadow: 0 28px 60px -15px var(--teal-glow), 0 0 32px rgba(217, 101, 139, 0.22);
+  box-shadow: 0 28px 60px -15px var(--teal-glow), 0 0 32px rgba(244, 114, 182, 0.28);
 }
 
 .engineer-gentle-float {
@@ -2445,12 +2365,12 @@ body {
   left: 0;
   right: 0;
   height: 3.5px;
-  background: linear-gradient(90deg, var(--teal-primary), #E87E9F, var(--coral-accent));
+  background: linear-gradient(90deg, var(--teal-primary), #F472B6, var(--coral-accent));
 }
 
 .engineer-seal-pill {
   background: var(--teal-subtle);
-  border: 1px solid rgba(217, 101, 139, 0.22);
+  border: 1px solid rgba(244, 114, 182, 0.30);
   border-radius: 9999px;
   padding: 4px 10px;
   font-size: 11px;
@@ -2508,7 +2428,7 @@ body {
   width: 86px;
   height: 86px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--teal-primary) 0%, #E87E9F 50%, var(--coral-accent) 100%);
+  background: linear-gradient(135deg, var(--teal-primary) 0%, #F472B6 50%, var(--coral-accent) 100%);
   box-shadow: 0 6px 20px var(--teal-glow);
   border: 3px solid var(--bg-card);
   display: flex;
