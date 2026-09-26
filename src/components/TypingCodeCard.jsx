@@ -12,6 +12,13 @@ const CODE_LINES = [
   },
   {
     tokens: [
+      { text: '  webJourney: ', cls: 'text-code-plain' },
+      { text: "'Since 2022 (Frontend to Full-Stack)'", cls: 'text-string' },
+      { text: ',', cls: 'text-code-plain' },
+    ],
+  },
+  {
+    tokens: [
       { text: '  specialty: ', cls: 'text-code-plain' },
       { text: "'Web & Mobile Development'", cls: 'text-string' },
       { text: ',', cls: 'text-code-plain' },
@@ -86,6 +93,7 @@ const totalChars = staticOffset
 const rawCodeString = `// Web & Mobile Profile
 const developer = {
   name: 'Hala Jabban',
+  webJourney: 'Since 2022 (Frontend to Full-Stack)',
   specialty: 'Web & Mobile Development',
   frontend: ['React', 'React Native', 'JavaScript', 'Bootstrap'],
   backend: ['ASP.NET Core', 'C#', 'SQL Server'],

@@ -40,7 +40,7 @@ function AnimatedStatValue({ value }) {
 export default function HomePage() {
   const { t } = useLanguage()
   const stats = t.home.stats.map((stat, index) => ({ ...stat, icon: ['bi-briefcase', 'bi-translate', 'bi-mortarboard', 'bi-folder-check'][index] }))
-  const highlights = t.home.highlights.map((item, index) => ({ ...item, icon: ['bi-server', 'bi-phone', 'bi-cpu'][index], color: ['teal', 'coral', 'cyan'][index] }))
+  const highlights = t.home.highlights.map((item, index) => ({ ...item, icon: ['bi-server', 'bi-phone', 'bi-cpu'][index], color: ['teal', 'coral', 'teal'][index] }))
 
   return (
     <div className="home-page animate-fade-in">
